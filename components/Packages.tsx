@@ -48,7 +48,7 @@ const newPackages: NewPackage[] = [
     tagline: 'All Inclusive Learn To Surf',
     description: "Expert coaching for all levels. Enhance your surfing skills and confidence in just one week. Perfect for beginners and improvers.",
     price: '449€',
-    imageUrl: 'https://images.unsplash.com/photo-1502680390408-f8b8fe1e2c1e?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: 'https://i.postimg.cc/Z5pNbGSG/Ella.jpg',
     inclusions: [
       { icon: <SurfIcon />, text: '5 Days surf lessons' },
       { icon: <MealIcon />, text: '3 Meals/day' },
@@ -63,7 +63,7 @@ const newPackages: NewPackage[] = [
     tagline: 'All Inclusive Yoga And Surf',
     description: "Rejuvenate body and mind. Balance exhilarating surf sessions with calming yoga practice for a holistic retreat experience.",
     price: '449€',
-    imageUrl: 'https://images.unsplash.com/photo-1599547843703-594a34e04812?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: 'https://i.postimg.cc/MTPM3x7Z/image-asset.jpg',
     inclusions: [
       { icon: <YogaIcon />, text: '6 Yoga sessions/week' },
       { icon: <MealIcon />, text: '3 Meals/day' },
@@ -78,7 +78,7 @@ const newPackages: NewPackage[] = [
     tagline: 'All Inclusive Surfari',
     description: 'Daily transfers to prime surf spots. Experience diverse waves at Reef and Point breaks for ultimate surfing adventure.',
     price: '499€',
-    imageUrl: 'https://images.unsplash.com/photo-1534759846112-65a6c1092497?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: 'https://i.postimg.cc/C59ZYN6p/ocean-surfari-snorkeling-do-it-a.jpg',
     inclusions: [
       { icon: <BeachIcon />, text: '5 Beach transfers' },
       { icon: <MealIcon />, text: '3 Meals/day' },
@@ -93,7 +93,7 @@ const newPackages: NewPackage[] = [
     tagline: 'The Perfect Balance',
     description: "Find your flow in and out of the water. This package perfectly blends daily surf lessons with rejuvenating yoga sessions to improve your balance, flexibility, and focus.",
     price: '549€',
-    imageUrl: 'https://images.unsplash.com/photo-1591291621265-cc6519ce608f?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: 'https://i.postimg.cc/KjTT1wT2/Yoga-and-Surfing-The-Perfect-Com.jpg',
     inclusions: [
       { icon: <SurfIcon />, text: '5 Days surf lessons' },
       { icon: <YogaIcon />, text: '5 Yoga sessions/week' },
@@ -108,7 +108,7 @@ const newPackages: NewPackage[] = [
     tagline: 'Eat, Sleep, Surf, Repeat',
     description: "For the dedicated surfer who wants to maximize time in the water. Includes twice-daily surf sessions, video analysis, and expert coaching to take your skills to the next level.",
     price: '599€',
-    imageUrl: 'https://images.unsplash.com/photo-1587522046736-2f6d1d4c8ab4?q=80&w=1200&auto=format&fit=crop',
+    imageUrl: 'https://i.postimg.cc/3Nzy7Bff/1200px-MA-Sidi-Ifni-Legzira-Beac.jpg',
     inclusions: [
       { icon: <SurfIcon />, text: '10 surf sessions (2/day)' },
       { icon: <VideoIcon />, text: 'Video analysis' },
@@ -335,24 +335,24 @@ const PackagesHeroSection: React.FC = () => {
 
 const accommodationData = [
     {
-        title: 'Rooms with ocean view',
-        description: 'Wake up to breathtaking Atlantic views and the sound of the waves.',
-        imageUrl: 'https://images.unsplash.com/photo-1560185893-a5536c80e64d?q=80&w=800&auto=format&fit=crop',
+        title: 'Berber Room',
+        description: 'Cozy Berber-style room with authentic décor and comfort.',
+        imageUrl: 'https://i.postimg.cc/W4pWC8Gx/berber-room-1.jpg',
     },
     {
-        title: 'Double/Twin Room',
-        description: 'Perfect for friends or couples seeking a peaceful stay with stunning views. Each room is equipped with modern amenities.',
-        imageUrl: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?q=80&w=800&auto=format&fit=crop',
+        title: 'Santa Cruz Room',
+        description: 'Spacious, bright room with modern comfort and Moroccan style.',
+        imageUrl: 'https://i.postimg.cc/XvHrkNNL/santa-cruz-room-1.jpg',
     },
     {
-        title: 'Triple Room',
-        description: 'Designed for groups, offering space and modern amenities.',
-        imageUrl: 'https://images.unsplash.com/photo-1590490359853-395107ba0d40?q=80&w=800&auto=format&fit=crop',
+        title: 'Ocean View Room',
+        description: 'Ocean View Room offers stunning Atlantic Ocean views, ideal for families or groups.',
+        imageUrl: 'https://i.postimg.cc/854tH6J2/occan-view-room-1.jpg',
     },
     {
-        title: 'Dormitory',
-        description: 'Ideal for meeting fellow surfers and sharing stories.',
-        imageUrl: 'https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=800&auto=format&fit=crop',
+        title: 'Sun Suite',
+        description: 'Sun Suite with panoramic views, ideal for friends or family.',
+        imageUrl: 'https://i.postimg.cc/bvWtjNXf/sun-suite-1.jpg',
     }
 ];
 
