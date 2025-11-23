@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidi Ifni Surf Camp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.cdnfonts.com">
+    <link href="https://fonts.cdnfonts.com/css/magilio" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.cdnfonts.com/css/consolas" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Roboto', 'sans-serif'],
+              heading: ['Poppins', 'sans-serif'],
+              display: ['Playfair Display', 'serif'],
+              magilio: ['Magilio', 'cursive'],
+              mono: ['Roboto Mono', 'monospace'],
+              consolas: ['Consolas', 'monospace'],
+            },
+            colors: {
+              'ocean-blue': '#0077b6',
+              'sand': '#fdf0d5',
+              'sunset-orange': '#f77f00',
+              'dark-slate': '#333333',
+              'booking-yellow': '#f0b74a',
+              'experience-yellow': '#ffd78b',
+              'light-gray-blue': '#f4f5fb',
+              'title-blue': '#11375c',
+              'charcoal-gray': '#2d2d2d',
+              'golden-yellow': '#f39c12',
+              'deep-sea-blue': '#0a3d62',
+              'ifni-gold': '#f39c11',
+              'beige-light': '#F9F5E9',
+              'teal-green': '#2E8B57',
+              'accent-red': '#ef4444',
+            },
+            animation: {
+              'fade-in-down': 'fadeInDown 0.6s ease-out forwards',
+              'fade-in-up': 'fadeInUp 0.6s ease-out 0.5s forwards',
+              'fade-in-right': 'fadeInRight 0.6s ease-out forwards',
+              'fade-in-up-base': 'fadeInUp 0.6s ease-out forwards',
+              'page-fade-in': 'pageFadeIn 0.5s ease-out forwards',
+              'spin': 'spin 1s linear infinite',
+              'subtle-pan': 'subtlePan 40s ease-in-out infinite alternate',
+              'scroll': 'scroll 60s linear infinite',
+              'blink': 'blink 1s step-end infinite',
+            },
+            keyframes: {
+              fadeInDown: {
+                '0%': { opacity: '0', transform: 'translateY(-5px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeInUp: {
+                '0%': { opacity: '0', transform: 'translateY(5px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              fadeInRight: {
+                '0%': { opacity: '0', transform: 'translateX(5px)' },
+                '100%': { opacity: '1', transform: 'translateX(0)' },
+              },
+              pageFadeIn: {
+                '0%': { opacity: '0', transform: 'translateY(8px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              },
+              spin: {
+                'from': { transform: 'rotate(0deg)' },
+                'to': { transform: 'rotate(360deg)' },
+              },
+              subtlePan: {
+                '0%': { transform: 'scale(1.1) translateX(-5%) translateY(5%)' },
+                '100%': { transform: 'scale(1.1) translateX(5%) translateY(-5%)' },
+              },
+              scroll: {
+                '0%': { transform: 'translateX(0)' },
+                '100%': { transform: 'translateX(-50%)' },
+              },
+              blink: {
+                '50%': { opacity: '0' }
+              }
+            }
+          }
+        }
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  </body>
+</html>
