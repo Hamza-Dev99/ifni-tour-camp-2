@@ -150,7 +150,7 @@ const NewPackageCard: React.FC<{ packageInfo: NewPackage }> = ({ packageInfo }) 
         ))}
       </ul>
 
-      <a href="#contact" className="bg-ifni-gold text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:bg-opacity-90 text-center w-full mt-auto block group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-ifni-gold/50">
+      <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-6 rounded-full transition-all duration-300 hover:bg-opacity-90 text-center w-full mt-auto block group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-ifni-gold/50 tracking-wider">
         Book Now
       </a>
     </div>
@@ -273,7 +273,7 @@ const PackageCarousel: React.FC<{ packages: NewPackage[] }> = ({ packages }) => 
 
 const heroSlides = [
   {
-    imageUrl: 'https://images.unsplash.com/photo-1532599800073-a24d88a1c314?q=80&w=1920&auto=format&fit=crop',
+    imageUrl: 'https://i.postimg.cc/tRK8DJc4/massive-waves.jpg',
     title: 'Your Ultimate Surf Adventure',
     subtitle: 'Custom packages for every wave rider, from beginner to pro.',
   },
@@ -346,7 +346,7 @@ const accommodationData = [
     },
     {
         title: 'Ocean View Room',
-        description: 'Ocean View Room offers stunning Atlantic Ocean views, ideal for families or groups.',
+        description: 'The Ocean View Room offers stunning Atlantic Ocean views, ideal for families or groups.',
         imageUrl: 'https://i.postimg.cc/854tH6J2/occan-view-room-1.jpg',
     },
     {
@@ -357,24 +357,24 @@ const accommodationData = [
 ];
 
 const AccommodationCard: React.FC<{ room: typeof accommodationData[0] }> = ({ room }) => (
-    <div className="text-left">
+    <div className="text-left" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
         <img src={room.imageUrl} alt={room.title} className="w-full h-48 object-cover rounded-lg mb-4 shadow-md transition-transform duration-300 hover:scale-105" />
         <h4 className="text-xl font-bold text-dark-slate dark:text-gray-200 mb-2">{room.title}</h4>
-        <p className="text-gray-600 dark:text-gray-400">{room.description}</p>
+        <p className="text-gray-600 dark:text-gray-400 font-consolas">{room.description}</p>
     </div>
 );
 
 const AccommodationSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage }) => (
     <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-20">
         <div className="container mx-auto px-6">
-            <div className="w-full mb-12">
+            <div className="w-full mb-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                 <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1200&auto=format&fit=crop" alt="Comfortable accommodation at Ifni Surf with Moroccan pillows" className="w-full h-96 object-cover rounded-lg shadow-lg" />
             </div>
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue">A c c o m m o d a t i o n</h2>
                 <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
                 <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
-                    Welcome to our <em>SurfCamp</em>, a space designed for both surfing and remote work. Our camp offers a unique blend for digital nomads and surf enthusiasts alike. Enjoy our coworking space with ocean views, ensuring productivity meets leisure. Start your day with a surf session and end it with breathtaking sunsets from the heart of <em>Taghazout</em>.
+                    Welcome to our <em>IFNI SURF CAMP</em>, where surfing meets remote work. Enjoy ocean-view coworking, daily surf sessions, and stunning <em>SIDI IFNI</em> sunsets.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -383,7 +383,7 @@ const AccommodationSection: React.FC<{ setPage: (page: string) => void }> = ({ s
                 ))}
             </div>
             <div className="text-center mt-16">
-                <button onClick={() => setPage('Accommodation')} className="bg-title-blue text-booking-yellow font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
+                <button onClick={() => setPage('Accommodation')} className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </button>
             </div>
@@ -397,30 +397,30 @@ const surfData = [
     {
         title: 'Surf coaching for beginners',
         description: 'Learn the basics with expert instructors in a fun, supportive group setting.',
-        imageUrl: 'https://images.unsplash.com/photo-1599423588723-5a0d92723795?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://i.postimg.cc/vBdGphqZ/img.webp',
     },
     {
         title: 'Boards & Wetsuits',
         description: 'High-quality boards and wetsuits provided for every level and condition.',
-        imageUrl: 'https://images.unsplash.com/photo-1531722569936-825d3dd91b15?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://i.postimg.cc/qq5SdMJC/img.webp',
     },
     {
         title: 'Surf Road Trip',
         description: "Join our guided trips to Morocco's top surf spots and hidden gems.",
-        imageUrl: 'https://images.unsplash.com/photo-1525184242822-a1f73775b4e1?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://i.postimg.cc/pdC0HXk8/img.webp',
     },
     {
         title: 'Self-Guided Surf',
         description: 'Explore the coastline at your own pace with our local tips and gear.',
-        imageUrl: 'https://images.unsplash.com/photo-1558981403-c5f9899a28bc?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://i.postimg.cc/L8pK45kk/img.webp',
     }
 ];
 
 const SurfExperienceCard: React.FC<{ experience: typeof surfData[0] }> = ({ experience }) => (
-    <div className="text-left">
+    <div className="text-left" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
         <img src={experience.imageUrl} alt={experience.title} className="w-full h-48 object-cover rounded-lg mb-4 shadow-md transition-transform duration-300 hover:scale-105" />
         <h4 className="text-xl font-bold text-dark-slate dark:text-gray-200 mb-2">{experience.title}</h4>
-        <p className="text-gray-600 dark:text-gray-400">{experience.description}</p>
+        <p className="text-gray-600 dark:text-gray-400 font-consolas">{experience.description}</p>
     </div>
 );
 
@@ -428,15 +428,14 @@ const SurfExperienceCard: React.FC<{ experience: typeof surfData[0] }> = ({ expe
 const SurfSection: React.FC = () => (
     <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-20">
         <div className="container mx-auto px-6">
-            <div className="w-full mb-12">
-                <img src="https://images.unsplash.com/photo-1532599800073-a24d88a1c314?q=80&w=1200&auto=format&fit=crop" alt="Surfer riding a wave" className="w-full h-96 object-cover rounded-lg shadow-lg" />
+            <div className="w-full mb-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <img src="https://i.postimg.cc/tRK8DJc4/massive-waves.jpg" alt="Surfer riding a wave" className="w-full h-96 object-cover rounded-lg shadow-lg" />
             </div>
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue">S u r f</h2>
                 <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
                 <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
-                    Welcome to <em>Ifni Surf</em>, one of the world’s most famous surf destinations. Our expert instructors offer tailored lessons at iconic surf spots. It’s more than just surfing; it’s about community, confidence, and creating unforgettable memories at our <em>SurfCamp</em>.
-                </p>
+                    Welcome to <em>IFNI TOUR CAMP</em> for expert surf lessons at iconic spots. Experience surfing, community, and unforgettable memories at our  <em>SurfCamp</em>. </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 {surfData.map((experience, index) => (
@@ -444,7 +443,7 @@ const SurfSection: React.FC = () => (
                 ))}
             </div>
             <div className="text-center mt-16">
-                <a href="#contact" className="bg-title-blue text-booking-yellow font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
+                <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
             </div>
@@ -458,44 +457,44 @@ const yogaData = [
     {
         title: 'Morning / Evening yoga session',
         description: 'Start and end your day with sessions designed to energize and restore.',
-        imageUrl: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://i.postimg.cc/fbT6QZ8f/img.webp',
     },
     {
         title: 'Integrate the concepts of balance',
         description: 'Improve your core strength and find your center, on and off the board.',
-        imageUrl: 'https://images.unsplash.com/photo-1599447462464-a55a8a8a36a7?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://i.postimg.cc/DzH5pKHW/img.webp',
     },
     {
         title: 'Unlock surfing’s hidden potential',
         description: 'Enhance your flexibility and focus to catch more waves with confidence.',
-        imageUrl: 'https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://i.postimg.cc/jS9zt4XB/img.webp',
     },
     {
         title: 'Make new friends',
         description: 'Connect with fellow travelers in a fun, relaxed, and supportive environment.',
-        imageUrl: 'https://images.unsplash.com/photo-1575052814086-c75ae76e6043?q=80&w=800&auto=format&fit=crop',
+        imageUrl: 'https://i.postimg.cc/Jzwr8yJ1/img.webp',
     }
 ];
 
 const YogaExperienceCard: React.FC<{ experience: typeof yogaData[0] }> = ({ experience }) => (
-    <div className="text-left">
+    <div className="text-left" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
         <img src={experience.imageUrl} alt={experience.title} className="w-full h-48 object-cover rounded-lg mb-4 shadow-md transition-transform duration-300 hover:scale-105" />
         <h4 className="text-xl font-bold text-dark-slate dark:text-gray-200 mb-2">{experience.title}</h4>
-        <p className="text-gray-600 dark:text-gray-400">{experience.description}</p>
+        <p className="text-gray-600 dark:text-gray-400 font-consolas">{experience.description}</p>
     </div>
 );
 
 const YogaSection: React.FC = () => (
     <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-20">
         <div className="container mx-auto px-6">
-            <div className="w-full mb-12">
-                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=1200&auto=format&fit=crop" alt="Group yoga session on a rooftop at sunset" className="w-full h-96 object-cover rounded-lg shadow-lg" />
+            <div className="w-full mb-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <img src="https://i.postimg.cc/LX7dV73M/img.webp" alt="Group yoga session on a rooftop at sunset" className="w-full h-96 object-cover rounded-lg shadow-lg" />
             </div>
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue">Y o g a &nbsp; C a m p</h2>
                 <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
                 <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
-                    At <em>Ifni Surf</em>, we believe surf and yoga go hand in hand. Our daily yoga sessions are designed to improve your balance, flexibility, and focus. Practicing yoga in Sidi Ifni, overlooking the ocean, is the perfect way to recharge after your surf sessions at our <em>Surf Camp</em>.
+                    At <em>IFNI SURF CAMP</em>, enjoy daily yoga sessions to boost balance, flexibility, and focus, with ocean views in <em>SIDI IFNI</em> perfect after surfing.
                 </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -504,7 +503,7 @@ const YogaSection: React.FC = () => (
                 ))}
             </div>
             <div className="text-center mt-16">
-                <a href="#contact" className="bg-title-blue text-booking-yellow font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
+                <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
             </div>
@@ -517,46 +516,45 @@ const YogaSection: React.FC = () => (
 const activitiesData = [
     {
         title: 'SANDBOARDING',
-        description: 'Ride the golden dunes of the Sahara. An exhilarating experience that combines the thrill of surfing with the stunning beauty of the desert landscape. Perfect for adrenaline junkies and nature lovers alike.',
-        imageUrl: 'https://images.unsplash.com/photo-1546823478-143856454176?q=80&w=1200&auto=format&fit=crop',
+        description: 'Surf across golden Sahara dunes in a fast, thrilling ride set against a striking desert landscape.',
+        imageUrl: 'https://i.postimg.cc/VNdYwj6D/USO-Sandboard-DVIDS72781.jpg',
     },
     {
         title: 'HIKING',
-        description: 'Explore the rugged coastline and hidden trails around Sidi Ifni. Discover breathtaking views, secret coves, and the unique flora of the region on a guided trek. A perfect way to connect with nature at your own pace.',
-        imageUrl: 'https://images.unsplash.com/photo-1551632811-561732d1e306?q=80&w=1200&auto=format&fit=crop',
+        description: 'Explore Sidi Ifni’s coastline on a guided trek with scenic cliffs, quiet coves, and local flora',
+        imageUrl: 'https://i.postimg.cc/pVYMg0CP/download.jpg',
     },
     {
         title: 'HORSE & CAMEL RIDING',
-        description: 'Experience the magic of the Moroccan coast from a different perspective. Enjoy a peaceful ride along the beach or through traditional villages at sunset. Connect with these majestic animals and create unforgettable memories.',
-        imageUrl: 'https://images.unsplash.com/photo-1598642398249-446700700b00?q=80&w=1200&auto=format&fit=crop',
+        description: 'Ride along the Moroccan coast at sunset, moving between quiet beaches and traditional villages.',
+        imageUrl: 'https://i.postimg.cc/MT2gLRjW/download.jpg',
     },
     {
         title: 'JET SKI / QUAD',
-        description: 'Satisfy your need for speed. Tear up the waves on a jet ski or navigate challenging off-road tracks on a powerful quad bike. An unforgettable adventure for those seeking a high-octane break from the surf.',
-        imageUrl: 'https://images.unsplash.com/photo-1590524948946-231a4a4848a6?q=80&w=1200&auto=format&fit=crop',
+        description: 'Feel the thrill on a jet ski or quad bike—high-speed adventures for adrenaline seekers.',
+        imageUrl: 'https://i.postimg.cc/pVk1f3kb/download.jpg',
     },
 ];
 
 const ActivityCard: React.FC<{ activity: typeof activitiesData[0] }> = ({ activity }) => (
-    <div className="text-left">
+    <div className="text-left" data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000">
         <img src={activity.imageUrl} alt={activity.title} className="w-full h-48 object-cover rounded-lg mb-4 shadow-md transition-transform duration-300 hover:scale-105" />
         <h4 className="text-xl font-bold text-dark-slate dark:text-gray-200 mb-2">{activity.title}</h4>
-        <p className="text-gray-600 dark:text-gray-400">{activity.description}</p>
+        <p className="text-gray-600 dark:text-gray-400 font-consolas">{activity.description}</p>
     </div>
 );
 
 const ActivitiesSection: React.FC = () => (
     <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-20">
         <div className="container mx-auto px-6">
-            <div className="w-full mb-12">
-                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?q=80&w=1200&auto=format&fit=crop" alt="Group enjoying activities" className="w-full h-96 object-cover rounded-lg shadow-lg" />
+            <div className="w-full mb-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+                <img src="https://i.postimg.cc/MKzkmyyM/img.webp" alt="Group enjoying activities" className="w-full h-96 object-cover rounded-lg shadow-lg" />
             </div>
             <div className="text-center mb-16">
                 <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue">A c t i v i t i e s</h2>
                  <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
                 <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
-                    Beyond the waves, the adventure continues. Discover the rich culture and stunning landscapes surrounding Sidi Ifni. From thrilling desert excursions to peaceful coastal rides, our activities offer a deeper connection to the magic of Morocco.
-                </p>
+                Beyond the waves, explore <em>SIDI IFNI</em>’s culture and landscapes. Enjoy desert adventures and coastal rides for a true taste of <em>Morocco</em>’s magic.                </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -566,7 +564,7 @@ const ActivitiesSection: React.FC = () => (
             </div>
 
             <div className="text-center mt-16">
-                <a href="#contact" className="bg-title-blue text-booking-yellow font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
+                <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
             </div>
