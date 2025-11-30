@@ -1532,7 +1532,7 @@ const HeroSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage })
             <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6">
                 <div className="flex-grow flex flex-col items-center justify-center">
                     <div key={currentSlide} className="w-full">
-                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-magilio text-white mb-4 animate-fade-in-down">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl font-magilio text-[#0b3d62] mb-4 animate-fade-in-down">
                             {heroSlides[currentSlide].title}
                         </h1>
                         <p className="text-lg md:text-xl font-consolas text-white/90 max-w-3xl mx-auto mb-8 animate-fade-in-up-base" style={{ animationDelay: '0.3s' }}>
@@ -1548,6 +1548,21 @@ const HeroSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage })
                         </button>
                     </div>
                 </div>
+            </div>
+
+            {/* The Wavy Line Divider */}
+            <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+                <svg className="relative block w-full h-[60px] md:h-[100px]" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shapeRendering="auto">
+                    <defs>
+                        <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                    </defs>
+                    <g className="parallax">
+                        <use xlinkHref="#gentle-wave" x="48" y="0" className="fill-[#f18219]/30 animate-wave-slow" />
+                        <use xlinkHref="#gentle-wave" x="48" y="3" className="fill-[#f18219]/50 animate-wave-medium" />
+                        <use xlinkHref="#gentle-wave" x="48" y="5" className="fill-[#f18219]/70 animate-wave-medium" style={{ animationDuration: '10s' }} />
+                        <use xlinkHref="#gentle-wave" x="48" y="7" className="fill-[#f18219] animate-wave-fast" />
+                    </g>
+                </svg>
             </div>
         </section>
     );
@@ -1723,6 +1738,37 @@ const ValuePropsSection: React.FC = () => (
     </Section>
 );
 // --- END: New "Why Choose Us" Section ---
+
+// --- NEW Community Section ---
+const CommunitySection: React.FC = () => (
+  <section className="relative h-[60vh] min-h-[500px] w-full overflow-hidden flex items-center justify-center">
+    {/* Background Image */}
+    <div 
+      className="absolute inset-0 w-full h-full bg-cover bg-center transition-transform duration-1000 ease-in-out hover:scale-105"
+      style={{ 
+        backgroundImage: "url('https://images.unsplash.com/photo-1534958184518-8f5c3577d200?q=80&w=1920&auto=format&fit=crop')",
+      }}
+    >
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/40"></div>
+    </div>
+
+    {/* Content */}
+    <div className="relative z-10 container mx-auto px-6 text-center">
+      <h2 className="text-4xl md:text-5xl lg:text-7xl font-bold font-sans text-white mb-6 drop-shadow-md animate-fade-in-down">
+        More than waves — it’s music, sunsets, and memories.
+      </h2>
+      
+      {/* Decorative Orange Line */}
+      <div className="w-24 h-1.5 bg-[#f18219] mx-auto mb-8 rounded-full shadow-sm animate-fade-in-up"></div>
+      
+      <p className="text-lg md:text-2xl font-light font-sans text-gray-100 max-w-3xl mx-auto drop-shadow-sm animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+        Join our community of surfers, travelers, and free spirits for the adventure of a lifetime in Sidi Ifni.
+      </p>
+    </div>
+  </section>
+);
+// --- END: Community Section ---
 
 
 const RoomCard: React.FC<{ room: RoomType }> = ({ room }) => (
@@ -2019,7 +2065,7 @@ const HomePage: React.FC<{ setPage: (page: string) => void }> = ({ setPage }) =>
         <ValuePropsSection />
         <RoomTypesSection rooms={roomTypes} setPage={setPage} />
         <CoachesSection coaches={coaches} />
-        <VibeGallery images={vibeImages} />
+        <CommunitySection />
         <NewTestimonialsSection />
     </div>
 );

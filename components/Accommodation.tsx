@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import type { AccommodationService } from '../types';
 
@@ -148,7 +149,7 @@ const roomsData: Room[] = [
 
 // Reusable check icon
 const CheckIcon: React.FC = () => (
-    <svg className="w-5 h-5 mr-2 text-[#f39c11] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+    <svg className="w-5 h-5 mr-2 text-[#f18219] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
 );
 
 
@@ -188,7 +189,7 @@ const RoomCard: React.FC<{ room: Room; imagePosition: 'left' | 'right' }> = ({ r
         <div className="md:w-1/2 w-full flex flex-col justify-center px-4 md:px-12 py-8 md:py-0">
             <h3 className="text-2xl md:text-4xl font-magilio text-[#f4f5fa]">
                 {room.title}
-                {room.subtitle && <span className="text-[#f39c11] ml-2">{room.subtitle}</span>}
+                {room.subtitle && <span className="text-[#f18219] ml-2">{room.subtitle}</span>}
             </h3>
             <p className="text-gray-200 my-4 leading-relaxed font-consolas text-lg font-bold">{room.description}</p>
             
@@ -202,8 +203,8 @@ const RoomCard: React.FC<{ room: Room; imagePosition: 'left' | 'right' }> = ({ r
             </div>
 
             <div className="flex items-center justify-between mt-6">
-                 <p className="text-2xl font-bold text-[#f39c11] font-consolas">{room.price}</p>
-                 <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors duration-300 transform hover:scale-105 font-magilio uppercase tracking-wider">
+                 <p className="text-2xl font-bold text-[#f18219] font-consolas">{room.price}</p>
+                 <a href="#contact" className="bg-[#f18219] text-[#f4f5fa] font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors duration-300 transform hover:scale-105 font-magilio uppercase tracking-wider">
                     Book Now
                  </a>
             </div>
@@ -227,26 +228,24 @@ const Accommodation: React.FC<AccommodationProps> = () => {
         <div className="bg-[#f4f5fa] dark:bg-gray-900 animate-page-fade-in">
             <AccommodationHeroSection />
             <section className="py-12 md:py-20">
-                <div className="container mx-auto px-6">
-                    <div className="text-center mb-12 md:mb-20">
-                        <h2 className="text-4xl md:text-6xl font-magilio text-title-blue dark:text-ocean-blue mb-4">
-                            O u r  &nbsp;  R o o m s  
-                        </h2>
-                        <img src="https://i.postimg.cc/NGKcdBNt/1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-80 md:w-[500px]" />
-                        <p className="text-xl font-consolas text-black dark:text-gray-300 max-w-3xl mx-auto font-bold">
-                            Comfortable, clean, and designed for surfers. Choose the perfect space for your adventure, whether you're a solo traveler, a couple, or with a group of friends.
-                        </p>
-                    </div>
-                    
-                    <div className="max-w-6xl mx-auto flex flex-col gap-12">
-                         {roomsData.map((room, index) => (
-                            <RoomCard 
-                                key={index} 
-                                room={room} 
-                                imagePosition={index % 2 === 0 ? 'left' : 'right'} 
-                            />
-                        ))}
-                    </div>
+                <div className="container mx-auto px-6 mb-12 md:mb-20 text-center">
+                    <h2 className="text-4xl md:text-6xl font-magilio text-title-blue dark:text-ocean-blue mb-4">
+                        O u r  &nbsp;  R o o m s  
+                    </h2>
+                    <img src="https://i.postimg.cc/NGKcdBNt/1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-80 md:w-[500px]" />
+                    <p className="text-xl font-consolas text-black dark:text-gray-300 max-w-3xl mx-auto font-bold">
+                        Comfortable, clean, and designed for surfers. Choose the perfect space for your adventure, whether you're a solo traveler, a couple, or with a group of friends.
+                    </p>
+                </div>
+                
+                <div className="w-full px-4 md:px-10 flex flex-col gap-12">
+                        {roomsData.map((room, index) => (
+                        <RoomCard 
+                            key={index} 
+                            room={room} 
+                            imagePosition={index % 2 === 0 ? 'left' : 'right'} 
+                        />
+                    ))}
                 </div>
             </section>
         </div>

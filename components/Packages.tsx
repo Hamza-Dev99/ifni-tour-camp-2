@@ -1,9 +1,10 @@
+
 import React, { useState } from 'react';
 import type { Package } from '../types';
 
 // --- ICONS ---
 const SurfIcon: React.FC = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.23 20.92c-1.25 0-2.34-1.02-2.34-2.28s1.05-2.28 2.34-2.28c1.29 0 2.34 1.02 2.34 2.28 0 1.25-1.05 2.28-2.34 2.28zM20.7 4.2c-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0-1.4-.4-2.8-.4-4.2 0L2.1 5.6c1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0 1.4-.4 2.8-.4 4.2 0l1.8-1.4zM2.1 12.6c1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0 1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0l1.8-1.4c-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0L2.1 12.6z"></path><path d="M12.48 4.2c.42 1.4-.35 2.8-1.75 3.22-1.4.42-2.8-.35-3.22-1.75"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.23 20.92c-1.25 0-2.34-1.02-2.34-2.28s1.05-2.28 2.34-2.28c1.29 0 2.34 1.02 2.34 2.28 0 1.25-1.05 2.28-2.34 2.28zM20.7 4.2c-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0-1.4-.4-2.8-.4-4.2 0L2.1 5.6c1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0l1.8-1.4zM2.1 12.6c1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0 1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0l1.8-1.4c-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0L2.1 12.6z"></path><path d="M12.48 4.2c.42 1.4-.35 2.8-1.75 3.22-1.4.42-2.8-.35-3.22-1.75"></path></svg>
 );
 const MealIcon: React.FC = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 21h2v-2H7v2zM7 17h2v-2H7v2zM7 13h2v-2H7v2zM7 9h2V7H7v2zM7 5h2V3H7v2z"></path><path d="M10 21v-2c0-1.1.9-2 2-2h4v-2h-4c-2.2 0-4-1.8-4-4V7c0-1.1.9-2 2-2h2"></path><path d="M17 21v-8c0-2.2-1.8-4-4-4h-2"></path></svg>
@@ -121,38 +122,47 @@ const newPackages: NewPackage[] = [
 
 const NewPackageCard: React.FC<{ packageInfo: NewPackage }> = ({ packageInfo }) => (
   <div 
-    className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 w-full max-w-sm mx-auto overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2"
+    className="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 w-full mx-auto overflow-hidden flex flex-col group transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 h-full"
     data-aos="fade-up"
   >
     <div className="relative">
-      <img src={packageInfo.imageUrl} alt={packageInfo.name} className="w-full h-56 object-cover" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-44 transform transition-transform duration-300 group-hover:scale-105">
+      <img src={packageInfo.imageUrl} alt={packageInfo.name} className="w-full h-64 object-cover" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 w-48 transform transition-transform duration-300 group-hover:scale-105">
         <div 
-          className="bg-white dark:bg-gray-800 p-2.5 rounded-xl shadow-lg text-center border-2 border-ifni-gold"
+          className="bg-white dark:bg-gray-800 p-3 rounded-xl shadow-lg text-center border-2 border-ifni-gold"
         >
-            <p className="font-heading text-[10px] text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold">Starting From</p>
-            <p className="font-heading text-3xl font-bold text-ifni-gold">{packageInfo.price}</p>
+            <p className="font-consolas text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider font-semibold">Starting From</p>
+            <p className="font-magilio text-3xl font-bold text-ifni-gold">{packageInfo.price}</p>
         </div>
       </div>
     </div>
 
-    <div className="p-6 pt-16 flex flex-col flex-grow">
-      <h3 className="font-heading text-xl font-bold uppercase text-teal-green dark:text-teal-green">{packageInfo.name} ({packageInfo.duration})</h3>
-      <p className="font-heading text-base text-charcoal-gray dark:text-gray-300 mt-1">{packageInfo.tagline}</p>
-      <p className="font-heading text-gray-600 dark:text-gray-400 mt-4 text-sm min-h-[110px]">{packageInfo.description}</p>
-      
-      <ul className="space-y-3 mt-auto mb-6 flex-grow">
-        {packageInfo.inclusions.map((item, index) => (
-          <li key={index} className="flex items-center font-heading text-charcoal-gray dark:text-sand text-sm">
-            <span className="mr-3 text-ocean-blue dark:text-ocean-blue">{item.icon}</span>
-            <span>{item.text}</span>
-          </li>
-        ))}
-      </ul>
+    <div className="p-8 pt-16 flex flex-col flex-grow">
+      <div className="text-center mb-6">
+          <h3 className="font-magilio text-2xl md:text-3xl font-bold uppercase text-[#11375c] dark:text-[#f4f5fa]">{packageInfo.name}</h3>
+          <p className="font-magilio text-lg text-[#f18219] mt-1">{packageInfo.duration}</p>
+          <p className="font-consolas text-base text-gray-500 dark:text-gray-400 mt-2 italic">{packageInfo.tagline}</p>
+      </div>
 
-      <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-6 rounded-full transition-all duration-300 hover:bg-opacity-90 text-center w-full mt-auto block group-hover:scale-105 group-hover:shadow-lg group-hover:shadow-ifni-gold/50 tracking-wider">
-        Book Now
-      </a>
+      <p className="font-consolas text-black dark:text-gray-300 text-base leading-relaxed mb-8">{packageInfo.description}</p>
+      
+      <div className="mt-auto">
+        <div className="border-t border-gray-200 dark:border-gray-700 pt-6 mb-8">
+            <h4 className="font-magilio text-xl text-[#11375c] dark:text-[#f4f5fa] mb-4 text-center">Inclusions</h4>
+            <ul className="grid grid-cols-1 xl:grid-cols-2 gap-x-4 gap-y-3">
+                {packageInfo.inclusions.map((item, index) => (
+                <li key={index} className="flex items-center font-consolas text-charcoal-gray dark:text-sand text-sm md:text-base">
+                    <span className="mr-3 text-[#f18219] flex-shrink-0">{item.icon}</span>
+                    <span>{item.text}</span>
+                </li>
+                ))}
+            </ul>
+        </div>
+
+        <a href="#contact" className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-4 px-8 rounded-full transition-all duration-300 hover:bg-opacity-90 text-center w-full block text-xl tracking-wider hover:shadow-lg transform hover:scale-[1.02]">
+            Book Now
+        </a>
+      </div>
     </div>
   </div>
 );
@@ -200,7 +210,7 @@ const PackageCarousel: React.FC<{ packages: NewPackage[] }> = ({ packages }) => 
     };
 
     return (
-        <div className="relative w-full max-w-sm md:max-w-6xl mx-auto">
+        <div className="relative w-full max-w-[95%] mx-auto">
              {/* Mobile Carousel Layout */}
             <div className="md:hidden">
                 <div className="overflow-hidden">
@@ -241,11 +251,11 @@ const PackageCarousel: React.FC<{ packages: NewPackage[] }> = ({ packages }) => 
 
             {/* Desktop Arrows (only show if there are more cards than visible) */}
             {packages.length > desktopVisibleCards && <>
-                <button onClick={handleDesktopPrev} className="absolute top-1/2 -left-6 -translate-y-1/2 bg-white/70 dark:bg-black/70 p-2 rounded-full shadow-lg hover:bg-white dark:hover:bg-black z-10 hidden md:block">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-dark-slate dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
+                <button onClick={handleDesktopPrev} className="absolute top-1/2 -left-6 -translate-y-1/2 bg-white/70 dark:bg-black/70 p-3 rounded-full shadow-lg hover:bg-white dark:hover:bg-black z-10 hidden md:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-dark-slate dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
                 </button>
-                <button onClick={handleDesktopNext} className="absolute top-1/2 -right-6 -translate-y-1/2 bg-white/70 dark:bg-black/70 p-2 rounded-full shadow-lg hover:bg-white dark:hover:bg-black z-10 hidden md:block">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-dark-slate dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                <button onClick={handleDesktopNext} className="absolute top-1/2 -right-6 -translate-y-1/2 bg-white/70 dark:bg-black/70 p-3 rounded-full shadow-lg hover:bg-white dark:hover:bg-black z-10 hidden md:block">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-dark-slate dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
                 </button>
             </>}
 
@@ -383,7 +393,7 @@ const AccommodationSection: React.FC<{ setPage: (page: string) => void }> = ({ s
                 ))}
             </div>
             <div className="text-center mt-16">
-                <button onClick={() => setPage('Accommodation')} className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
+                <button onClick={() => setPage('Accommodation')} className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </button>
             </div>
@@ -443,7 +453,7 @@ const SurfSection: React.FC = () => (
                 ))}
             </div>
             <div className="text-center mt-16">
-                <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
+                <a href="#contact" className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
             </div>
@@ -503,7 +513,7 @@ const YogaSection: React.FC = () => (
                 ))}
             </div>
             <div className="text-center mt-16">
-                <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
+                <a href="#contact" className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
             </div>
@@ -564,7 +574,7 @@ const ActivitiesSection: React.FC = () => (
             </div>
 
             <div className="text-center mt-16">
-                <a href="#contact" className="bg-[#f39c11] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
+                <a href="#contact" className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
             </div>

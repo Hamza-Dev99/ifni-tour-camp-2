@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 // --- HERO SECTION ---
@@ -135,7 +136,7 @@ const yogaData: YogaExperience[] = [
 ];
 
 const CheckIcon: React.FC = () => (
-    <svg className="w-5 h-5 mr-2 text-[#f39c11] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+    <svg className="w-5 h-5 mr-2 text-[#f18219] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
 );
 
 const YogaCard: React.FC<{ experience: YogaExperience; imagePosition: 'left' | 'right' }> = ({ experience, imagePosition }) => {
@@ -171,7 +172,7 @@ const YogaCard: React.FC<{ experience: YogaExperience; imagePosition: 'left' | '
         <div className="md:w-1/2 w-full flex flex-col justify-center px-4 md:px-12 py-8 md:py-0">
             <h3 className="text-2xl md:text-4xl font-magilio text-[#f4f5fa]">
                 {experience.title}
-                {experience.subtitle && <span className="text-[#f39c11] ml-2">{experience.subtitle}</span>}
+                {experience.subtitle && <span className="text-[#f18219] ml-2">{experience.subtitle}</span>}
             </h3>
             <p className="text-[#f4f5fa] my-4 leading-relaxed font-consolas text-lg font-bold">
                 {experience.description}
@@ -185,10 +186,10 @@ const YogaCard: React.FC<{ experience: YogaExperience; imagePosition: 'left' | '
                 ))}
             </div>
             <div className="flex items-center justify-between mt-6">
-                 {experience.price && <p className="text-2xl font-bold text-[#f39c11] font-consolas">{experience.price}</p>}
+                 {experience.price && <p className="text-2xl font-bold text-[#f18219] font-consolas">{experience.price}</p>}
                 <a 
                     href="#contact" 
-                    className="bg-[#f39c11] text-[#f4f5fa] font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors duration-300 transform hover:scale-105 font-magilio uppercase tracking-wider inline-block"
+                    className="bg-[#f18219] text-[#f4f5fa] font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors duration-300 transform hover:scale-105 font-magilio uppercase tracking-wider inline-block"
                 >
                     {experience.buttonText}
                 </a>

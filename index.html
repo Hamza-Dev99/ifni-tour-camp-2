@@ -44,7 +44,7 @@
               'charcoal-gray': '#2d2d2d',
               'golden-yellow': '#f39c12',
               'deep-sea-blue': '#0a3d62',
-              'ifni-gold': '#f39c11',
+              'ifni-gold': '#f18219',
               'beige-light': '#F9F5E9',
               'teal-green': '#2E8B57',
               'accent-red': '#ef4444',
@@ -59,6 +59,9 @@
               'subtle-pan': 'subtlePan 40s ease-in-out infinite alternate',
               'scroll': 'scroll 60s linear infinite',
               'blink': 'blink 1s step-end infinite',
+              'wave-slow': 'moveForever 25s cubic-bezier(.55,.5,.45,.5) infinite',
+              'wave-medium': 'moveForever 13s cubic-bezier(.55,.5,.45,.5) infinite',
+              'wave-fast': 'moveForever 5s cubic-bezier(.55,.5,.45,.5) infinite',
             },
             keyframes: {
               fadeInDown: {
@@ -91,6 +94,10 @@
               },
               blink: {
                 '50%': { opacity: '0' }
+              },
+              moveForever: {
+                '0%': { transform: 'translate3d(-90px, 0, 0)' },
+                '100%': { transform: 'translate3d(85px, 0, 0)' },
               }
             }
           }
