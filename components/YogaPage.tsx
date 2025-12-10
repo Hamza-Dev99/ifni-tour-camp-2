@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 
 // --- HERO SECTION ---
@@ -209,19 +210,19 @@ const YogaPage: React.FC = () => {
     return (
         <div className="bg-[#f4f5fa] dark:bg-gray-900 animate-page-fade-in min-h-screen">
             <YogaHeroSection />
-            <section className="py-12 md:py-20">
+            <section className="py-12 md:py-16">
                 <div className="container mx-auto px-6">
-                    <div className="text-center mb-12 md:mb-20">
+                    <div className="text-center mb-12 md:mb-16">
                         <h2 className="text-4xl md:text-6xl font-magilio text-title-blue dark:text-ocean-blue mb-4">
                             Yoga & Wellness Experience
                         </h2>
-                        <img src="https://i.postimg.cc/NGKcdBNt/1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-80 md:w-[500px]" />
+                        <img src="https://i.postimg.cc/NGKcdBNt/1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-80 md:w-[500px]" />
                         <p className="text-xl font-consolas text-black dark:text-gray-300 max-w-3xl mx-auto font-bold">
                             Our camp extends beyond the waves. Immerse yourself in a holistic lifestyle that nourishes the mind, body, and soul through the practice of yoga and community connection. Find your balance where the desert meets the ocean.
                         </p>
                     </div>
                     
-                    <div className="max-w-6xl mx-auto flex flex-col gap-12">
+                    <div className="max-w-6xl mx-auto flex flex-col gap-8">
                         {yogaData.map((experience, index) => (
                             <YogaCard 
                                 key={index} 

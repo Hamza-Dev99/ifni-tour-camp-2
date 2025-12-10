@@ -1,4 +1,5 @@
 
+
 import React, { useState, useEffect } from 'react';
 import type { AccommodationService } from '../types';
 
@@ -227,18 +228,18 @@ const Accommodation: React.FC<AccommodationProps> = () => {
     return (
         <div className="bg-[#f4f5fa] dark:bg-gray-900 animate-page-fade-in">
             <AccommodationHeroSection />
-            <section className="py-12 md:py-20">
-                <div className="container mx-auto px-6 mb-12 md:mb-20 text-center">
+            <section className="py-12 md:py-16">
+                <div className="container mx-auto px-6 mb-12 md:mb-16 text-center">
                     <h2 className="text-4xl md:text-6xl font-magilio text-title-blue dark:text-ocean-blue mb-4">
                         O u r  &nbsp;  R o o m s  
                     </h2>
-                    <img src="https://i.postimg.cc/NGKcdBNt/1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-80 md:w-[500px]" />
+                    <img src="https://i.postimg.cc/NGKcdBNt/1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-80 md:w-[500px]" />
                     <p className="text-xl font-consolas text-black dark:text-gray-300 max-w-3xl mx-auto font-bold">
                         Comfortable, clean, and designed for surfers. Choose the perfect space for your adventure, whether you're a solo traveler, a couple, or with a group of friends.
                     </p>
                 </div>
                 
-                <div className="w-full px-4 md:px-10 flex flex-col gap-12">
+                <div className="w-full px-4 md:px-10 flex flex-col gap-8">
                         {roomsData.map((room, index) => (
                         <RoomCard 
                             key={index} 

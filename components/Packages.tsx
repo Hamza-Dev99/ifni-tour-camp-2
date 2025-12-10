@@ -1,10 +1,11 @@
 
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import type { Package } from '../types';
 
 // --- ICONS ---
 const SurfIcon: React.FC = () => (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.23 20.92c-1.25 0-2.34-1.02-2.34-2.28s1.05-2.28 2.34-2.28c1.29 0 2.34 1.02 2.34 2.28 0 1.25-1.05 2.28-2.34 2.28zM20.7 4.2c-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0-1.4-.4-2.8-.4-4.2 0L2.1 5.6c1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0l1.8-1.4zM2.1 12.6c1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0 1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0l1.8-1.4c-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0L2.1 12.6z"></path><path d="M12.48 4.2c.42 1.4-.35 2.8-1.75 3.22-1.4.42-2.8-.35-3.22-1.75"></path></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.23 20.92c-1.25 0-2.34-1.02-2.34-2.28s1.05-2.28 2.34-2.28c1.29 0 2.34 1.02 2.34 1.02 2.34 2.28 0 1.25-1.05 2.28-2.34 2.28zM20.7 4.2c-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0L2.1 5.6c1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0l1.8-1.4zM2.1 12.6c1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0 1.4.4 2.8.4 4.2 0 1.4-.4 2.8-.4 4.2 0l1.8-1.4c-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0-1.4-.4-2.8-.4-4.2 0-1.4.4-2.8.4-4.2 0L2.1 12.6z"></path><path d="M12.48 4.2c.42 1.4-.35 2.8-1.75 3.22-1.4.42-2.8-.35-3.22-1.75"></path></svg>
 );
 const MealIcon: React.FC = () => (
     <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M7 21h2v-2H7v2zM7 17h2v-2H7v2zM7 13h2v-2H7v2zM7 9h2V7H7v2zM7 5h2V3H7v2z"></path><path d="M10 21v-2c0-1.1.9-2 2-2h4v-2h-4c-2.2 0-4-1.8-4-4V7c0-1.1.9-2 2-2h2"></path><path d="M17 21v-8c0-2.2-1.8-4-4-4h-2"></path></svg>
@@ -301,28 +302,55 @@ const heroSlides = [
 
 
 const PackagesHeroSection: React.FC = () => {
-    const [currentSlide, setCurrentSlide] = React.useState(0);
+    const [currentSlide, setCurrentSlide] = useState(0);
+    const [scrollY, setScrollY] = useState(0);
 
-    React.useEffect(() => {
+    useEffect(() => {
         const slideInterval = setInterval(() => {
             setCurrentSlide(prevSlide => (prevSlide + 1) % heroSlides.length);
         }, 5000);
 
-        return () => clearInterval(slideInterval);
+        const handleScroll = () => {
+             setScrollY(window.scrollY);
+        };
+        
+        // Add scroll listener
+        window.addEventListener('scroll', handleScroll, { passive: true });
+
+        return () => {
+            clearInterval(slideInterval);
+            window.removeEventListener('scroll', handleScroll);
+        };
     }, []);
     
     return (
         <section className="relative h-[60vh] min-h-[500px] text-white overflow-hidden">
+             {/* Background Slides with Parallax */}
             {heroSlides.map((slide, index) => (
                 <div
                     key={index}
-                    className="absolute inset-0 w-full h-full bg-cover bg-center transition-opacity duration-1000 ease-in-out animate-subtle-pan"
+                    className="absolute inset-0 w-full h-full"
                     style={{ 
-                        backgroundImage: `url('${slide.imageUrl}')`,
                         opacity: index === currentSlide ? 1 : 0,
+                        transition: 'opacity 1000ms ease-in-out',
+                        zIndex: 0
                     }}
                 >
-                    <div className="absolute inset-0 bg-black/60"></div>
+                    {/* Parallax Container */}
+                    <div 
+                        className="absolute inset-0 w-full h-full"
+                        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+                    >
+                        {/* Image with Pan Animation */}
+                        <div
+                            className="w-full h-full bg-cover bg-center animate-subtle-pan"
+                            style={{ 
+                                backgroundImage: `url('${slide.imageUrl}')`,
+                            }}
+                        >
+                            <div className="absolute inset-0 bg-black/60"></div>
+                        </div>
+                    </div>
                 </div>
             ))}
             
@@ -375,14 +403,14 @@ const AccommodationCard: React.FC<{ room: typeof accommodationData[0] }> = ({ ro
 );
 
 const AccommodationSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage }) => (
-    <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-20">
+    <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-12 md:py-16">
         <div className="container mx-auto px-6">
-            <div className="w-full mb-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <div className="w-full mb-10" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                 <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?q=80&w=1200&auto=format&fit=crop" alt="Comfortable accommodation at Ifni Surf with Moroccan pillows" className="w-full h-96 object-cover rounded-lg shadow-lg" />
             </div>
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 md:mb-12">
                 <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue">A c c o m m o d a t i o n</h2>
-                <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
+                <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-96 md:w-[600px]" />
                 <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
                     Welcome to our <em>IFNI SURF CAMP</em>, where surfing meets remote work. Enjoy ocean-view coworking, daily surf sessions, and stunning <em>SIDI IFNI</em> sunsets.
                 </p>
@@ -392,7 +420,7 @@ const AccommodationSection: React.FC<{ setPage: (page: string) => void }> = ({ s
                     <AccommodationCard key={index} room={room} />
                 ))}
             </div>
-            <div className="text-center mt-16">
+            <div className="text-center mt-12">
                 <button onClick={() => setPage('Accommodation')} className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </button>
@@ -436,14 +464,14 @@ const SurfExperienceCard: React.FC<{ experience: typeof surfData[0] }> = ({ expe
 
 
 const SurfSection: React.FC = () => (
-    <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-20">
+    <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-12 md:py-16">
         <div className="container mx-auto px-6">
-            <div className="w-full mb-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <div className="w-full mb-10" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                 <img src="https://i.postimg.cc/tRK8DJc4/massive-waves.jpg" alt="Surfer riding a wave" className="w-full h-96 object-cover rounded-lg shadow-lg" />
             </div>
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 md:mb-12">
                 <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue">S u r f</h2>
-                <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
+                <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-96 md:w-[600px]" />
                 <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
                     Welcome to <em>IFNI TOUR CAMP</em> for expert surf lessons at iconic spots. Experience surfing, community, and unforgettable memories at our  <em>SurfCamp</em>. </p>
             </div>
@@ -452,7 +480,7 @@ const SurfSection: React.FC = () => (
                     <SurfExperienceCard key={index} experience={experience} />
                 ))}
             </div>
-            <div className="text-center mt-16">
+            <div className="text-center mt-12">
                 <a href="#contact" className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
@@ -495,14 +523,14 @@ const YogaExperienceCard: React.FC<{ experience: typeof yogaData[0] }> = ({ expe
 );
 
 const YogaSection: React.FC = () => (
-    <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-20">
+    <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-12 md:py-16">
         <div className="container mx-auto px-6">
-            <div className="w-full mb-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <div className="w-full mb-10" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                 <img src="https://i.postimg.cc/LX7dV73M/img.webp" alt="Group yoga session on a rooftop at sunset" className="w-full h-96 object-cover rounded-lg shadow-lg" />
             </div>
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 md:mb-12">
                 <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue">Y o g a &nbsp; C a m p</h2>
-                <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
+                <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-96 md:w-[600px]" />
                 <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
                     At <em>IFNI SURF CAMP</em>, enjoy daily yoga sessions to boost balance, flexibility, and focus, with ocean views in <em>SIDI IFNI</em> perfect after surfing.
                 </p>
@@ -512,7 +540,7 @@ const YogaSection: React.FC = () => (
                     <YogaExperienceCard key={index} experience={experience} />
                 ))}
             </div>
-            <div className="text-center mt-16">
+            <div className="text-center mt-12">
                 <a href="#contact" className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
@@ -555,14 +583,14 @@ const ActivityCard: React.FC<{ activity: typeof activitiesData[0] }> = ({ activi
 );
 
 const ActivitiesSection: React.FC = () => (
-    <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-20">
+    <section className="bg-light-gray-blue dark:bg-dark-slate/20 py-12 md:py-16">
         <div className="container mx-auto px-6">
-            <div className="w-full mb-12" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <div className="w-full mb-10" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
                 <img src="https://i.postimg.cc/MKzkmyyM/img.webp" alt="Group enjoying activities" className="w-full h-96 object-cover rounded-lg shadow-lg" />
             </div>
-            <div className="text-center mb-16">
+            <div className="text-center mb-10 md:mb-12">
                 <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue">A c t i v i t i e s</h2>
-                 <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
+                 <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-96 md:w-[600px]" />
                 <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
                 Beyond the waves, explore <em>SIDI IFNI</em>’s culture and landscapes. Enjoy desert adventures and coastal rides for a true taste of <em>Morocco</em>’s magic.                </p>
             </div>
@@ -573,7 +601,7 @@ const ActivitiesSection: React.FC = () => (
                 ))}
             </div>
 
-            <div className="text-center mt-16">
+            <div className="text-center mt-12">
                 <a href="#contact" className="bg-[#f18219] text-[#f4f5fa] font-magilio font-bold py-3 px-8 rounded-full text-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 inline-block">
                     Book Now
                 </a>
@@ -588,24 +616,24 @@ const ActivitiesSection: React.FC = () => (
 const PackagesPage: React.FC<{ packages: Package[], isLoading: boolean, setPage: (page: string) => void }> = ({ packages, isLoading, setPage }) => (
   <>
     <PackagesHeroSection />
-    <section className="py-20 bg-light-gray-blue dark:bg-dark-slate/20">
+    <section className="py-12 md:py-16 bg-light-gray-blue dark:bg-dark-slate/20">
       <div className="container mx-auto px-6">
           <div className="text-center">
               <h2 className="text-4xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue mb-4">
                   Ifni Tour Camp, A unique Destination, Great Experience !
               </h2>
-              <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
+              <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-96 md:w-[600px]" />
               <p className="text-lg font-consolas text-black dark:text-gray-200 max-w-3xl mx-auto font-bold">
                   Welcome to Surf Camp SunSet Ifni. Located in Sidi Ifni City, our Surf Camp blends comfortable accommodation, professional surf lessons for all levels. Whether you are a beginner or an advanced surfer, our team ensures your SurfCamp experience goes beyond the waves.
               </p>
           </div>
       </div>
     </section>
-    <section className="py-20 bg-deep-sea-blue dark:bg-deep-sea-blue/95">
+    <section className="py-12 md:py-16 bg-deep-sea-blue dark:bg-deep-sea-blue/95">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12">
+        <div className="text-center mb-10 md:mb-12">
           <h2 className="text-4xl md:text-5xl font-magilio text-white dark:text-booking-yellow">O u r &nbsp; L a t e s t &nbsp; O f f e r s &nbsp; !</h2>
-          <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-6 h-auto w-96 md:w-[600px]" />
+          <img src="https://i.postimg.cc/L6CCYqMP/x-1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-96 md:w-[600px]" />
           <p className="text-lg font-consolas text-white dark:text-gray-200 max-w-3xl mx-auto mt-6 font-bold">
             Choose the perfect adventure for your skill level and style. All packages include a taste of local culture and unforgettable memories.
           </p>

@@ -84,7 +84,7 @@ const QuickViewModal: React.FC<{ product: ShopProduct; onClose: () => void }> = 
 
 
 const ProductCard: React.FC<{ product: ShopProduct; onQuickView: (product: ShopProduct) => void; }> = ({ product, onQuickView }) => (
-  <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden group transition-transform duration-300 hover:-translate-y-2 flex flex-col">
+  <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col">
     <div className="relative w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden">
       <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
       
@@ -135,16 +135,16 @@ const ShopPage: React.FC<ShopPageProps> = ({ products }) => {
 
   return (
     <>
-      <section className="bg-sand dark:bg-gray-900 py-16 md:py-24 animate-page-fade-in">
+      <section className="bg-sand dark:bg-gray-900 py-12 md:py-16 animate-page-fade-in">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-10 md:mb-12">
             <h2 className="text-3xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue mb-4">
               The Dingle Surf Collection
             </h2>
             <img 
               src="https://i.postimg.cc/NGKcdBNt/1.png" 
               alt="Decorative line" 
-              className="mx-auto my-6 h-auto w-80 md:w-[500px]" 
+              className="mx-auto my-4 h-auto w-80 md:w-[500px]" 
             />
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Curated apparel for the modern wave rider. Quality threads with an authentic surf vibe.

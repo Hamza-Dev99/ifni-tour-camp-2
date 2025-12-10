@@ -3,7 +3,7 @@ import ThemeToggle from './ThemeToggle';
 
 const Logo: React.FC<{ setPage: (page: string) => void }> = ({ setPage }) => (
   <button onClick={() => setPage('Home')} className="bg-transparent border-none cursor-pointer">
-    <img src="https://i.postimg.cc/Sx9Cw9DP/Your-paragraph-text-1.png" alt="Ifni Surf Logo" className="h-16 w-auto" />
+    <img src="https://i.postimg.cc/Sx9Cw9DP/Your-paragraph-text-1.png" alt="Ifni Surf Logo" className="w-[150px] md:w-[200px] h-auto" />
   </button>
 );
 
