@@ -1,22 +1,69 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sidi Ifni Surf Camp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Sidi Ifni Surf Camp | Authentic Moroccan Adventure</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.cdnfonts.com">
     <link href="https://fonts.cdnfonts.com/css/magilio" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.cdnfonts.com/css/consolas" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
+      :root {
+        --fluid-h1: clamp(2.8rem, 10vw, 6rem);
+        --fluid-h2: clamp(2rem, 6vw, 4rem);
+        --fluid-h3: clamp(1.4rem, 4vw, 2.2rem);
+        --fluid-p: clamp(1rem, 1.3vw, 1.25rem);
+        --ifni-gold: #f18219;
+      }
       html {
         scroll-behavior: smooth;
+        font-size: 16px;
+      }
+      body {
+        overflow-x: hidden;
+        background-color: #ffffff;
+      }
+      .fluid-h1 { font-size: var(--fluid-h1); line-height: 1; }
+      .fluid-h2 { font-size: var(--fluid-h2); line-height: 1.1; }
+      .fluid-h3 { font-size: var(--fluid-h3); line-height: 1.2; }
+      .fluid-p { font-size: var(--fluid-p); line-height: 1.6; }
+      
+      .container-wide {
+        max-width: 1400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .bg-radial-vignette {
+        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.85) 100%);
+      }
+
+      /* Custom animations for the new Hero */
+      .animate-subtle-pan {
+        animation: subtlePan 40s ease-in-out infinite alternate;
+      }
+
+      @keyframes subtlePan {
+        0% { transform: scale(1.0) translateX(0); }
+        100% { transform: scale(1.15) translateX(3%); }
+      }
+
+      /* Hide scrollbar but allow scrolling */
+      .no-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
     </style>
     <script>
@@ -29,91 +76,53 @@
               heading: ['Poppins', 'sans-serif'],
               display: ['Playfair Display', 'serif'],
               magilio: ['Magilio', 'cursive'],
-              mono: ['Roboto Mono', 'monospace'],
-              consolas: ['Consolas', 'monospace'],
             },
             colors: {
               'ocean-blue': '#0077b6',
+              'brand-blue': '#0D69A6',
+              'brand-orange': '#FF8C42',
               'sand': '#fdf0d5',
               'sunset-orange': '#f77f00',
-              'dark-slate': '#333333',
+              'dark-slate': '#1a1a1a',
               'booking-yellow': '#f0b74a',
               'experience-yellow': '#ffd78b',
               'light-gray-blue': '#f4f5fb',
               'title-blue': '#11375c',
-              'charcoal-gray': '#2d2d2d',
-              'golden-yellow': '#f39c12',
-              'deep-sea-blue': '#0a3d62',
               'ifni-gold': '#f18219',
-              'beige-light': '#F9F5E9',
-              'teal-green': '#2E8B57',
-              'accent-red': '#ef4444',
             },
             animation: {
-              'fade-in-down': 'fadeInDown 0.6s ease-out forwards',
-              'fade-in-up': 'fadeInUp 0.6s ease-out 0.5s forwards',
-              'fade-in-right': 'fadeInRight 0.6s ease-out forwards',
-              'fade-in-up-base': 'fadeInUp 0.6s ease-out forwards',
-              'page-fade-in': 'pageFadeIn 0.5s ease-out forwards',
-              'spin': 'spin 1s linear infinite',
-              'subtle-pan': 'subtlePan 40s ease-in-out infinite alternate',
-              'scroll': 'scroll 60s linear infinite',
-              'blink': 'blink 1s step-end infinite',
-              'wave-slow': 'moveForever 25s cubic-bezier(.55,.5,.45,.5) infinite',
-              'wave-medium': 'moveForever 13s cubic-bezier(.55,.5,.45,.5) infinite',
-              'wave-fast': 'moveForever 5s cubic-bezier(.55,.5,.45,.5) infinite',
+              'fade-in-down': 'fadeInDown 1s ease-out forwards',
+              'fade-in-up': 'fadeInUp 1s ease-out forwards',
+              'page-fade-in': 'pageFadeIn 0.8s ease-out forwards',
             },
             keyframes: {
               fadeInDown: {
-                '0%': { opacity: '0', transform: 'translateY(-5px)' },
+                '0%': { opacity: '0', transform: 'translateY(-30px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
               },
               fadeInUp: {
-                '0%': { opacity: '0', transform: 'translateY(5px)' },
+                '0%': { opacity: '0', transform: 'translateY(30px)' },
                 '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              fadeInRight: {
-                '0%': { opacity: '0', transform: 'translateX(5px)' },
-                '100%': { opacity: '1', transform: 'translateX(0)' },
               },
               pageFadeIn: {
-                '0%': { opacity: '0', transform: 'translateY(8px)' },
-                '100%': { opacity: '1', transform: 'translateY(0)' },
-              },
-              spin: {
-                'from': { transform: 'rotate(0deg)' },
-                'to': { transform: 'rotate(360deg)' },
-              },
-              subtlePan: {
-                '0%': { transform: 'scale(1.1) translateX(-5%) translateY(5%)' },
-                '100%': { transform: 'scale(1.1) translateX(5%) translateY(-5%)' },
-              },
-              scroll: {
-                '0%': { transform: 'translateX(0)' },
-                '100%': { transform: 'translateX(-50%)' },
-              },
-              blink: {
-                '50%': { opacity: '0' }
-              },
-              moveForever: {
-                '0%': { transform: 'translate3d(-90px, 0, 0)' },
-                '100%': { transform: 'translate3d(85px, 0, 0)' },
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
               }
             }
           }
         }
       }
     </script>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/"
-  }
-}
-</script>
-</head>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://aistudiocdn.com/react@^19.2.0",
+        "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+        "react/": "https://aistudiocdn.com/react@^19.2.0/"
+      }
+    }
+    </script>
+  </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/index.tsx"></script>

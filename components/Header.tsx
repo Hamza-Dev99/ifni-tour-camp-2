@@ -62,7 +62,7 @@ const Header: React.FC<HeaderProps> = ({ setPage }) => {
 
   return (
     <header className="bg-white/80 backdrop-blur-md dark:bg-dark-slate/80 shadow-md sticky top-0 z-50 transition-colors duration-300">
-      <div className="container mx-auto px-6 py-2">
+      <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-2">
         <div className="flex justify-between items-center">
           <Logo setPage={setPage} />
 
@@ -75,7 +75,7 @@ const Header: React.FC<HeaderProps> = ({ setPage }) => {
                   className="relative"
                   ref={categoryRef}
                 >
-                  <button onClick={() => setIsCategoryOpen(!isCategoryOpen)} className="flex items-center text-deep-sea-blue dark:text-sand font-medium hover:text-ocean-blue dark:hover:text-booking-yellow transition-colors duration-300 bg-transparent border-none cursor-pointer p-0">
+                  <button onClick={() => setIsCategoryOpen(!isCategoryOpen)} className="flex items-center text-deep-sea-blue dark:text-sand font-medium hover:text-ocean-blue dark:hover:text-booking-yellow transition-colors duration-300 bg-transparent border-none cursor-pointer p-0 text-lg">
                     {link.name}
                     <svg className={`w-4 h-4 ml-1 transition-transform duration-200 ${isCategoryOpen ? 'transform rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                   </button>
@@ -94,7 +94,7 @@ const Header: React.FC<HeaderProps> = ({ setPage }) => {
                   )}
                 </div>
               ) : (
-                <button key={link.name} onClick={() => handleNavClick(link.page)} className="text-deep-sea-blue dark:text-sand font-medium hover:text-ocean-blue dark:hover:text-booking-yellow transition-colors duration-300 bg-transparent border-none cursor-pointer p-0">
+                <button key={link.name} onClick={() => handleNavClick(link.page)} className="text-deep-sea-blue dark:text-sand font-medium hover:text-ocean-blue dark:hover:text-booking-yellow transition-colors duration-300 bg-transparent border-none cursor-pointer p-0 text-lg">
                   {link.name}
                 </button>
               )
@@ -108,7 +108,7 @@ const Header: React.FC<HeaderProps> = ({ setPage }) => {
           {/* Mobile Burger Button */}
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-dark-slate dark:text-sand focus:outline-none">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24" stroke="currentColor">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 {isOpen ? <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /> : <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7" />}
               </svg>
             </button>
@@ -123,7 +123,7 @@ const Header: React.FC<HeaderProps> = ({ setPage }) => {
                 <div key={link.name}>
                   <button
                     onClick={() => link.subLinks ? setIsMobileCategoryOpen(!isMobileCategoryOpen) : handleNavClick(link.page)}
-                    className="flex items-center justify-center text-deep-sea-blue dark:text-sand font-medium hover:text-ocean-blue dark:hover:text-booking-yellow transition-colors duration-300 py-2 text-center bg-transparent border-none cursor-pointer w-full"
+                    className="flex items-center justify-center text-deep-sea-blue dark:text-sand font-medium hover:text-ocean-blue dark:hover:text-booking-yellow transition-colors duration-300 py-2 text-center bg-transparent border-none cursor-pointer w-full text-lg"
                   >
                     {link.name}
                     {link.subLinks && (

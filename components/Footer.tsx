@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 // --- Icons ---
@@ -38,18 +37,18 @@ const Footer: React.FC = () => {
     <footer id="contact" className="relative">
         
         {/* --- Top Section: Newsletter & Benefits --- */}
-        <div className="relative w-full py-20 md:py-28 px-6 bg-cover bg-center overflow-hidden flex flex-col items-center justify-center text-center"
-             style={{ backgroundImage: "url('https://i.postimg.cc/DZctSNYs/592166589-1893263931541408-4621800369630194947-n.jpg')" }}>
+        <div className="relative w-full py-20 md:py-28 bg-cover bg-center overflow-hidden flex flex-col items-center justify-center text-center"
+             style={{ backgroundImage: "url('https://images.unsplash.com/photo-1502680390408-f8b8fe1e2c1e?q=80&w=1920&auto=format&fit=crop')" }}>
             
             {/* Dark Overlay */}
             <div className="absolute inset-0 bg-black/60 z-0"></div>
 
-            <div className="relative z-10 w-full max-w-5xl">
+            <div className="relative z-10 w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Headline & Subhead */}
-                <h2 className="text-4xl md:text-6xl font-bold font-sans text-white mb-6 drop-shadow-lg">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white mb-6 drop-shadow-lg">
                     Unlock Your Next Adventure
                 </h2>
-                <p className="text-gray-200 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed font-sans">
+                <p className="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed font-sans">
                     Join our surf & adventure family for early access to new trips, special offers, and real stories from fellow travelers.
                 </p>
 
@@ -58,76 +57,76 @@ const Footer: React.FC = () => {
                     <input 
                         type="email" 
                         placeholder="Your Email Address" 
-                        className="w-full px-6 py-4 rounded-full bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0a81d5] transition-all font-sans"
+                        className="w-full px-6 py-4 rounded-full bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0a81d5] transition-all font-sans text-lg"
                     />
-                    <button className="w-full sm:w-auto px-8 py-4 bg-[#0a81d5] text-white font-bold rounded-full hover:bg-[#004677] transition-colors duration-300 whitespace-nowrap shadow-lg">
+                    <button className="w-full sm:w-auto px-10 py-4 bg-[#0a81d5] text-white font-bold rounded-full hover:bg-[#004677] transition-colors duration-300 whitespace-nowrap shadow-lg text-lg">
                         Join the Journey
                     </button>
                 </div>
 
                 {/* Three Benefit Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-6xl mx-auto">
                     {/* Card 1 */}
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 shadow-lg">
                         <LockIcon />
                         <h3 className="text-xl font-bold text-white mb-2">Early Access</h3>
-                        <p className="text-gray-300 text-sm">Be first to book new adventures before they’re public.</p>
+                        <p className="text-gray-300 text-base">Be first to book new adventures before they’re public.</p>
                     </div>
 
                     {/* Card 2 */}
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 shadow-lg">
                         <TagIcon />
                         <h3 className="text-xl font-bold text-white mb-2">Exclusive Offers</h3>
-                        <p className="text-gray-300 text-sm">Member-only discounts and special adventure packages.</p>
+                        <p className="text-gray-300 text-base">Member-only discounts and special adventure packages.</p>
                     </div>
 
                     {/* Card 3 */}
                     <div className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 shadow-lg">
                         <GlobeIcon />
                         <h3 className="text-xl font-bold text-white mb-2">Adventure Stories</h3>
-                        <p className="text-gray-300 text-sm">Inspiring travel stories and tips from fellow adventurers.</p>
+                        <p className="text-gray-300 text-base">Inspiring travel stories and tips from fellow adventurers.</p>
                     </div>
                 </div>
             </div>
         </div>
 
         {/* --- Bottom Section: Info Footer --- */}
-        <div className="bg-[#0b3d62] text-white pt-16 pb-8 border-t border-[#004677]">
-            <div className="container mx-auto px-6">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-20">
+        <div className="bg-[#0b3d62] text-white pt-20 pb-10 border-t border-[#004677]">
+            <div className="w-full max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-24">
                     
                     {/* Left Column: Brand Story */}
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                         <div className="flex flex-col">
-                            <h3 className="text-2xl font-bold font-magilio tracking-wider text-white">
+                            <h3 className="text-3xl font-bold font-magilio tracking-wider text-white">
                                 IFNI TOUR
                             </h3>
-                            <span className="text-xs font-bold tracking-[0.2em] text-[#f18219] mt-1 uppercase">
+                            <span className="text-xs font-bold tracking-[0.2em] text-[#f18219] mt-2 uppercase">
                                 SURF • COWORK • YOGA
                             </span>
                         </div>
-                        <p className="text-gray-300 font-sans leading-relaxed text-sm opacity-90">
+                        <p className="text-gray-300 font-sans leading-relaxed text-base opacity-90">
                             Few steps away from the beach, Discovering different surf spots along Sidi Ifni region, enjoying daily mesmerizing beach sunsets, incorporate mediation sessions, uncover the beauty and simplicity of the fishing village, feed your wanderlust with Ifni Tour Surf Camp.
                         </p>
                         
-                         <div className="flex space-x-6 mt-4">
+                         <div className="flex space-x-6 mt-6">
                             <a href="https://www.instagram.com/ifni_sunset/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#f18219] transition-colors">
-                                <InstagramIcon className="w-6 h-6" />
+                                <InstagramIcon className="w-8 h-8" />
                             </a>
                             <a href="https://www.facebook.com/profile.php?id=61581823543362" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-[#f18219] transition-colors">
-                                <FacebookIcon className="w-6 h-6" />
+                                <FacebookIcon className="w-8 h-8" />
                             </a>
                             <a href="#tripadvisor" className="text-gray-300 hover:text-[#f18219] transition-colors">
-                                <TripAdvisorIcon className="w-6 h-6" />
+                                <TripAdvisorIcon className="w-8 h-8" />
                             </a>
                         </div>
                     </div>
 
                     {/* Middle Column: Navigation */}
-                    <div className="grid grid-cols-2 gap-8">
+                    <div className="grid grid-cols-2 gap-8 lg:gap-12">
                         <div>
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Experiences</h4>
-                            <ul className="space-y-4 text-sm text-gray-300">
+                            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm border-b border-gray-600 pb-2 inline-block">Experiences</h4>
+                            <ul className="space-y-4 text-base text-gray-300">
                                 <li><a href="#" className="hover:text-[#f18219] transition-colors">Surf Packages</a></li>
                                 <li><a href="#" className="hover:text-[#f18219] transition-colors">Yoga Packages</a></li>
                                 <li><a href="#" className="hover:text-[#f18219] transition-colors">Coworking Packages</a></li>
@@ -136,8 +135,8 @@ const Footer: React.FC = () => {
                             </ul>
                         </div>
                         <div>
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">About Us</h4>
-                            <ul className="space-y-4 text-sm text-gray-300">
+                            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm border-b border-gray-600 pb-2 inline-block">About Us</h4>
+                            <ul className="space-y-4 text-base text-gray-300">
                                 <li><a href="#" className="hover:text-[#f18219] transition-colors">Who We Are</a></li>
                                 <li><a href="#" className="hover:text-[#f18219] transition-colors">Our Team</a></li>
                                 <li><a href="#" className="hover:text-[#f18219] transition-colors">Influencer Program</a></li>
@@ -150,25 +149,25 @@ const Footer: React.FC = () => {
                     {/* Right Column: Contact & Quick Links */}
                     <div className="space-y-8">
                         <div>
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm">Contact Us</h4>
-                            <ul className="space-y-4 text-sm text-gray-300">
+                            <h4 className="font-bold text-white mb-6 uppercase tracking-wider text-sm border-b border-gray-600 pb-2 inline-block">Contact Us</h4>
+                            <ul className="space-y-4 text-base text-gray-300">
                                 <li className="flex items-start">
-                                    <span className="text-[#f18219] mr-3 font-bold">✉️</span>
+                                    <span className="text-[#f18219] mr-4 font-bold text-xl">✉️</span>
                                     <span>bookings@ifnitour.com</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="text-[#f18219] mr-3 font-bold">📞</span>
+                                    <span className="text-[#f18219] mr-4 font-bold text-xl">📞</span>
                                     <span>+212 633196196</span>
                                 </li>
                                 <li className="flex items-start">
-                                    <span className="text-[#f18219] mr-3 font-bold">📍</span>
+                                    <span className="text-[#f18219] mr-4 font-bold text-xl">📍</span>
                                     <span>27 Rue Tasga Oudrar, Sidi Ifni, 85200, Morocco.</span>
                                 </li>
                             </ul>
                         </div>
                          <div>
-                            <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
-                            <ul className="space-y-2 text-sm text-gray-300">
+                            <h4 className="font-bold text-white mb-4 uppercase tracking-wider text-sm border-b border-gray-600 pb-2 inline-block">Quick Links</h4>
+                            <ul className="space-y-2 text-base text-gray-300">
                                 <li><a href="#" className="hover:text-[#f18219] transition-colors">Sidi Ifni</a></li>
                             </ul>
                         </div>
@@ -177,7 +176,7 @@ const Footer: React.FC = () => {
                 </div>
 
                 {/* Copyright */}
-                <div className="border-t border-white/10 mt-16 pt-8 text-center text-xs text-gray-400">
+                <div className="border-t border-white/10 mt-20 pt-8 text-center text-sm text-gray-400">
                     <p>&copy; {new Date().getFullYear()} SunSet Ifni Tour. All rights reserved.</p>
                 </div>
             </div>
