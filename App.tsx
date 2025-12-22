@@ -1,5 +1,5 @@
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useCallback } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import PackagesPage from './components/Packages';
@@ -24,55 +24,51 @@ const Section: React.FC<{ children: React.ReactNode, className?: string, id?: st
 
 const valuePropsData = [
   {
-    headline: "Pioneer Roots",
-    body: "Founded in 2007, we are the original heartbeat of Sidi Ifni's surf culture, blending deep local heritage with world-class hospitality.",
-    imageUrl: "https://i.postimg.cc/PxgMK619/1.jpg"
+    headline: "Authentic Local Experience",
+    body: "Local surf experts connect you to Sidi Ifni's culture, community, and secret surf spots for an experience that goes beyond the waves.",
+    imageUrl: "https://i.postimg.cc/L69YYnQr/Authentic-Local-Experience.jpg"
   },
   {
-    headline: "Elite Progression",
-    body: "Our ISA-certified instructors utilize advanced video analysis to transform your technique, whether it's your first wave or your hundredth.",
-    imageUrl: "https://i.postimg.cc/PxgMK619/1.jpg"
+    headline: "World-Class Coaching",
+    body: "Our certified instructors use advanced techniques and video analysis to accelerate your progression, regardless of your starting point.",
+    imageUrl: "https://i.postimg.cc/vB7TDsWK/World-Class-Coaching.jpg"
   },
   {
-    headline: "The 'Ifni' Soul",
+    headline: "The Ifni Tour Vibe",
     body: "More than a camp—a family. Experience our legendary communal dinners, acoustic sunset sessions, and the warmest vibes in Morocco.",
-    imageUrl: "https://i.postimg.cc/PxgMK619/1.jpg"
+    imageUrl: "https://i.postimg.cc/6pG9yKKM/client-ifni-sunset-1.jpg"
   },
   {
-    headline: "Nomad Sanctuary",
-    body: "Designed for the remote worker. Enjoy high-speed fiber internet and dedicated quiet zones, perfectly balancing workflow and wave-flow.",
-    imageUrl: "https://i.postimg.cc/PxgMK619/1.jpg"
+    headline: "All-Inclusive & Hassle-Free",
+    body: "From airport transfers to top-quality gear, we've got you covered. Just show up and we'll handle the rest for an unforgettable adventure.",
+    imageUrl: "https://i.postimg.cc/BL64wR7p/All-Inclusive-Hassle-Free.jpg"
   },
   {
-    headline: "Earth First",
-    body: "We lead the way in sustainable tourism with zero-plastic initiatives and monthly coastal cleanups to protect our Atlantic playground.",
-    imageUrl: "https://i.postimg.cc/PxgMK619/1.jpg"
+    headline: "Ocean View",
+    body: "Enjoy breathtaking views of the Atlantic Ocean. Watch the waves crash against the shore and feel the refreshing sea breeze from every corner.",
+    imageUrl: "https://i.postimg.cc/1zqfh645/Ocean-View.jpg"
   }
 ];
 
 const ValuePropCard: React.FC<{ prop: typeof valuePropsData[0], index: number }> = ({ prop, index }) => (
     <div 
-        className="bg-white dark:bg-gray-800 rounded-[2rem] overflow-hidden shadow-xl border border-gray-100 dark:border-gray-700 flex flex-col h-full transition-transform duration-300 hover:-translate-y-2 group"
-        data-aos="fade-up"
-        data-aos-delay={index * 100}
+        className="relative aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl group flex flex-col justify-end p-8 text-left transition-transform duration-500 hover:scale-[1.02] h-full"
     >
-        <div className="relative aspect-[4/3] overflow-hidden">
-            <img 
-                src={prop.imageUrl} 
-                alt={prop.headline} 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-        </div>
-        <div className="p-8 flex flex-col flex-grow text-left">
-            <div className="flex items-center gap-3 mb-4">
-                <div className="w-8 h-[2px] bg-ifni-gold"></div>
-                <span className="text-ifni-gold font-bold text-xs tracking-widest uppercase">0{index + 1}</span>
-            </div>
-            <h3 className="text-2xl font-bold text-title-blue dark:text-ocean-blue mb-4 font-heading leading-tight">
+        {/* Full-bleed background image */}
+        <div 
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+            style={{ backgroundImage: `url('${prop.imageUrl}')` }}
+        />
+        
+        {/* Dark Overlay (approx 50-70% opacity for legibility) */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+        
+        {/* Content */}
+        <div className="relative z-10">
+            <h3 className="text-3xl md:text-4xl font-magilio text-white mb-4 leading-tight drop-shadow-md">
                 {prop.headline}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 font-sans leading-relaxed text-lg">
+            <p className="text-white text-base md:text-lg font-sans leading-relaxed opacity-90 font-light">
                 {prop.body}
             </p>
         </div>
@@ -296,25 +292,107 @@ const AtmosphericHeroSection: React.FC = () => (
     </section>
 );
 
-const ValuePropsSection: React.FC = () => (
-    <Section className="bg-white dark:bg-dark-slate" padding="py-16 md:py-24">
-        <div className="text-center mb-12 md:mb-16">
-            <h2 className="fluid-h2 font-magilio text-title-blue dark:text-ocean-blue mb-4">
-                Why Choose Us?
-            </h2>
-            <div className="w-14 h-[2px] bg-ifni-gold mx-auto mb-6"></div>
-            <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto font-sans leading-relaxed text-balance">
-                Discover why Ifni Tour is the premier choice for wave riders worldwide. We've optimized every detail for your ultimate comfort and progression.
-            </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 items-stretch">
-            {valuePropsData.map((prop, index) => (
-                <ValuePropCard key={index} prop={prop} index={index} />
-            ))}
-        </div>
-    </Section>
-);
+const ValuePropsSection: React.FC = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [visibleSlides, setVisibleSlides] = useState(3);
+    const containerRef = useRef<HTMLDivElement>(null);
+
+    const updateVisibleSlides = useCallback(() => {
+        if (window.innerWidth >= 1024) setVisibleSlides(3);
+        else if (window.innerWidth >= 768) setVisibleSlides(2);
+        else setVisibleSlides(1);
+    }, []);
+
+    useEffect(() => {
+        updateVisibleSlides();
+        window.addEventListener('resize', updateVisibleSlides);
+        return () => window.removeEventListener('resize', updateVisibleSlides);
+    }, [updateVisibleSlides]);
+
+    const maxIndex = Math.max(0, valuePropsData.length - visibleSlides);
+
+    const nextSlide = () => {
+        setCurrentIndex(prev => Math.min(prev + 1, maxIndex));
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex(prev => Math.max(prev - 1, 0));
+    };
+
+    const goToSlide = (index: number) => {
+        setCurrentIndex(Math.min(index, maxIndex));
+    };
+
+    return (
+        <Section className="bg-white dark:bg-dark-slate overflow-hidden" padding="py-16 md:py-24">
+            <div className="text-center mb-12 md:mb-16">
+                <h2 className="fluid-h2 font-magilio text-title-blue dark:text-ocean-blue mb-4">
+                    Why Choose Us?
+                </h2>
+                <div className="w-14 h-[2px] bg-ifni-gold mx-auto mb-6"></div>
+                <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 max-w-3xl mx-auto font-sans leading-relaxed text-balance">
+                    Discover why Ifni Tour is the premier choice for wave riders worldwide. We've optimized every detail for your ultimate comfort and progression.
+                </p>
+            </div>
+            
+            <div className="relative max-w-[1400px] mx-auto px-12 md:px-16">
+                {/* Navigation Arrows */}
+                <button 
+                    onClick={prevSlide}
+                    disabled={currentIndex === 0}
+                    className={`absolute left-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 ${currentIndex === 0 ? 'opacity-30 cursor-not-allowed' : 'hover:scale-110 hover:bg-ifni-gold hover:text-white'}`}
+                    aria-label="Previous slide"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+
+                <button 
+                    onClick={nextSlide}
+                    disabled={currentIndex >= maxIndex}
+                    className={`absolute right-0 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-white dark:bg-gray-800 shadow-xl border border-gray-100 dark:border-gray-700 transition-all duration-300 ${currentIndex >= maxIndex ? 'opacity-30 cursor-not-allowed' : 'hover:scale-110 hover:bg-ifni-gold hover:text-white'}`}
+                    aria-label="Next slide"
+                >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+
+                {/* Slider Viewport */}
+                <div className="overflow-hidden">
+                    <div 
+                        ref={containerRef}
+                        className="flex transition-transform duration-700 ease-out"
+                        style={{ transform: `translateX(-${currentIndex * (100 / visibleSlides)}%)` }}
+                    >
+                        {valuePropsData.map((prop, index) => (
+                            <div 
+                                key={index} 
+                                className="px-3 shrink-0"
+                                style={{ width: `${100 / visibleSlides}%` }}
+                            >
+                                <ValuePropCard prop={prop} index={index} />
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                {/* Pagination Dots */}
+                <div className="flex justify-center gap-3 mt-12">
+                    {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => goToSlide(i)}
+                            className={`h-2.5 rounded-full transition-all duration-300 ${i === currentIndex ? 'w-10 bg-ifni-gold' : 'w-2.5 bg-gray-300 dark:bg-gray-600 hover:bg-ifni-gold/50'}`}
+                            aria-label={`Go to slide ${i + 1}`}
+                        />
+                    ))}
+                </div>
+            </div>
+        </Section>
+    );
+};
 
 const App: React.FC = () => {
     const [page, setPage] = useState('Home');
