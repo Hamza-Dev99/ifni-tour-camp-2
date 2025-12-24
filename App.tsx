@@ -430,7 +430,7 @@ const HeroSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage })
                                 className="group relative overflow-hidden bg-ifni-gold text-white py-3 px-8 md:py-4 md:px-12 rounded-full text-xs md:text-base transition-all duration-500 transform hover:scale-105 shadow-2xl font-magilio font-normal"
                             >
                                 <span className="relative z-10">Start Your Adventure</span>
-                                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></div>
+                                <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-y-0 transition-transform duration-500"></div>
                             </button>
                             
                             <button
@@ -471,7 +471,7 @@ const HeroSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage })
 
 const IntroSection: React.FC = () => (
   <Section id="intro" className="bg-white text-center" padding="pt-10 md:pt-14 pb-2">
-      <img src="https://i.postimg.cc/ZngFwFYH/65.png" alt="Logo" className="mx-auto mb-3 h-14 md:h-18 opacity-100 transition-transform hover:scale-110" />
+      <img src="https://i.postimg.cc/Hnb3Lf7L/65-(1)-(1).png" alt="sun" className="mx-auto mb-3 w-[300px] h-auto opacity-100 transition-transform hover:scale-110" />
       
       <h2 className="text-2xl md:text-5xl font-magilio text-title-blue mb-1 font-normal">
         Welcome to Ifni Tour Surf Camp
@@ -480,7 +480,7 @@ const IntroSection: React.FC = () => (
       <img 
         src="https://i.postimg.cc/9fJtSFt1/Screenshot-2025-12-23-200156.png"
         alt="Decorative line" 
-        className="mx-auto mb-5 h-auto w-44 md:w-[420px]" 
+        className="mx-auto mb-5 h-auto w-44 md:w-[500px]" 
       />
       
       <p className="text-sm md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-center px-4 font-['Consolas',_monospace] font-bold" data-aos="fade-up">
