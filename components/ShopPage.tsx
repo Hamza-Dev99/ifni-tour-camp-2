@@ -49,30 +49,30 @@ const QuickViewModal: React.FC<{ product: ShopProduct; onClose: () => void }> = 
       role="dialog"
     >
       <div 
-        className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row relative overflow-hidden"
+        className="bg-white rounded-lg shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col md:flex-row relative overflow-hidden"
         onClick={e => e.stopPropagation()} // Prevent closing when clicking inside the modal
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white transition-colors z-10"
+          className="absolute top-4 right-4 text-gray-500 hover:text-gray-800 transition-colors z-10"
           aria-label="Close"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" /></svg>
         </button>
 
         {/* Image Section */}
-        <div className="md:w-1/2 w-full h-64 md:h-auto bg-gray-100 dark:bg-gray-700">
+        <div className="md:w-1/2 w-full h-64 md:h-auto bg-gray-100">
           <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover" />
         </div>
 
         {/* Details Section */}
         <div className="md:w-1/2 w-full p-6 md:p-8 flex flex-col overflow-y-auto">
-          <h2 className="text-2xl md:text-3xl font-bold font-heading text-title-blue dark:text-sand mb-2">{product.name}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold font-heading text-title-blue mb-2">{product.name}</h2>
           <p className="font-bold text-2xl text-teal-green mb-4">{product.price}</p>
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed mb-6 flex-grow">{product.description}</p>
+          <p className="text-gray-600 leading-relaxed mb-6 flex-grow">{product.description}</p>
           
           <div className="mt-auto">
-            <button className="bg-teal-green text-white font-bold py-3 px-8 rounded-full hover:bg-teal-green/90 transition-colors w-full text-lg">
+            <button className="bg-teal-green text-white py-3 px-8 rounded-full hover:bg-teal-green/90 transition-colors w-full text-lg font-magilio font-normal uppercase tracking-wider">
               Add to Cart
             </button>
           </div>
@@ -84,7 +84,7 @@ const QuickViewModal: React.FC<{ product: ShopProduct; onClose: () => void }> = 
 
 
 const ProductCard: React.FC<{ product: ShopProduct; onQuickView: (product: ShopProduct) => void; }> = ({ product, onQuickView }) => (
-  <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col">
+  <div className="bg-white rounded-lg shadow-md overflow-hidden group transition-all duration-300 hover:scale-105 hover:shadow-xl flex flex-col">
     <div className="relative w-full aspect-w-1 aspect-h-1 bg-gray-200 overflow-hidden">
       <img src={product.imageUrl} alt={product.name} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" />
       
@@ -108,7 +108,7 @@ const ProductCard: React.FC<{ product: ShopProduct; onQuickView: (product: ShopP
                   </button>
               </div>
               {/* Add to Cart Button */}
-              <button className="bg-teal-green text-white font-bold py-3 px-8 rounded-full hover:bg-teal-green/90 transition-colors w-full">
+              <button className="bg-teal-green text-white py-3 px-8 rounded-full hover:bg-teal-green/90 transition-colors w-full font-magilio font-normal uppercase tracking-wider">
                   Add to Cart
               </button>
           </div>
@@ -116,7 +116,7 @@ const ProductCard: React.FC<{ product: ShopProduct; onQuickView: (product: ShopP
     </div>
 
     <div className="p-4 text-center flex-grow flex flex-col justify-center">
-      <h3 className="text-lg font-heading text-dark-slate dark:text-sand truncate group-hover:text-ocean-blue dark:group-hover:text-booking-yellow transition-colors duration-300">{product.name}</h3>
+      <h3 className="text-lg font-heading text-dark-slate truncate group-hover:text-ocean-blue transition-colors duration-300">{product.name}</h3>
       <p className="font-bold text-teal-green mt-1">{product.price}</p>
     </div>
   </div>
@@ -135,10 +135,10 @@ const ShopPage: React.FC<ShopPageProps> = ({ products }) => {
 
   return (
     <>
-      <section className="bg-sand dark:bg-gray-900 py-12 md:py-16 animate-page-fade-in">
+      <section className="bg-sand py-12 md:py-16 animate-page-fade-in">
         <div className="container mx-auto px-6">
           <div className="text-center mb-10 md:mb-12">
-            <h2 className="text-3xl md:text-5xl font-magilio text-title-blue dark:text-ocean-blue mb-4">
+            <h2 className="text-3xl md:text-5xl font-magilio text-title-blue mb-4">
               The Dingle Surf Collection
             </h2>
             <img 
@@ -146,7 +146,7 @@ const ShopPage: React.FC<ShopPageProps> = ({ products }) => {
               alt="Decorative line" 
               className="mx-auto my-4 h-auto w-80 md:w-[500px]" 
             />
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Curated apparel for the modern wave rider. Quality threads with an authentic surf vibe.
             </p>
           </div>

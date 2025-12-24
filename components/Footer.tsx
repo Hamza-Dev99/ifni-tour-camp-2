@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-sans text-white mb-6 drop-shadow-lg">
                     Unlock Your Next Adventure
                 </h2>
-                <p className="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed font-sans">
+                <p className="text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-12 leading-relaxed font-['Consolas',_monospace] italic">
                     Join our surf & adventure family for early access to new trips, special offers, and real stories from fellow travelers.
                 </p>
 
@@ -59,7 +59,7 @@ const Footer: React.FC = () => {
                         placeholder="Your Email Address" 
                         className="w-full px-6 py-4 rounded-full bg-white text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0a81d5] transition-all font-sans text-lg"
                     />
-                    <button className="w-full sm:w-auto px-10 py-4 bg-[#0a81d5] text-white font-bold rounded-full hover:bg-[#004677] transition-colors duration-300 whitespace-nowrap shadow-lg text-lg">
+                    <button className="w-full sm:w-auto px-10 py-4 bg-[#0a81d5] text-white rounded-full hover:bg-[#004677] transition-colors duration-300 whitespace-nowrap shadow-lg text-lg font-magilio font-normal">
                         Join the Journey
                     </button>
                 </div>

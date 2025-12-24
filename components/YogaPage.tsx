@@ -1,5 +1,3 @@
-
-
 import React, { useState, useEffect } from 'react';
 
 // --- HERO SECTION ---
@@ -49,7 +47,7 @@ const YogaHeroSection: React.FC = () => {
             
             <div className="relative z-10 flex flex-col items-center justify-center text-center h-full px-6">
                 <div key={currentSlide} className="w-full">
-                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-magilio text-white mb-4 animate-fade-in-down">
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl font-magilio text-white mb-4 animate-fade-in-down font-normal">
                         {heroSlides[currentSlide].title}
                     </h1>
                     <p className="text-lg md:text-xl font-consolas text-[#f4f5fa] max-w-3xl mx-auto mb-8 animate-fade-in-up" style={{ animationDelay: '0.3s' }}>
@@ -171,7 +169,7 @@ const YogaCard: React.FC<{ experience: YogaExperience; imagePosition: 'left' | '
 
     const textContainer = (
         <div className="md:w-1/2 w-full flex flex-col justify-center px-4 md:px-12 py-8 md:py-0">
-            <h3 className="text-2xl md:text-4xl font-magilio text-[#f4f5fa]">
+            <h3 className="text-2xl md:text-4xl font-magilio text-[#f4f5fa] font-normal">
                 {experience.title}
                 {experience.subtitle && <span className="text-[#f18219] ml-2">{experience.subtitle}</span>}
             </h3>
@@ -190,7 +188,7 @@ const YogaCard: React.FC<{ experience: YogaExperience; imagePosition: 'left' | '
                  {experience.price && <p className="text-2xl font-bold text-[#f18219] font-consolas">{experience.price}</p>}
                 <a 
                     href="#contact" 
-                    className="bg-[#f18219] text-[#f4f5fa] font-bold py-3 px-8 rounded-lg hover:bg-opacity-90 transition-colors duration-300 transform hover:scale-105 font-magilio uppercase tracking-wider inline-block"
+                    className="bg-gradient-to-r from-[#0c8ad7] to-[#085889] text-[#f4f5fa] py-3 px-8 rounded-lg hover:bg-opacity-90 transition-all duration-300 transform hover:scale-105 font-magilio uppercase tracking-wider inline-block font-normal"
                 >
                     {experience.buttonText}
                 </a>
@@ -208,16 +206,16 @@ const YogaCard: React.FC<{ experience: YogaExperience; imagePosition: 'left' | '
 
 const YogaPage: React.FC = () => {
     return (
-        <div className="bg-[#f4f5fa] dark:bg-gray-900 animate-page-fade-in min-h-screen">
+        <div className="bg-[#f4f5fa] animate-page-fade-in min-h-screen">
             <YogaHeroSection />
             <section className="py-12 md:py-16">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-12 md:mb-16">
-                        <h2 className="text-4xl md:text-6xl font-magilio text-title-blue dark:text-ocean-blue mb-4">
+                        <h2 className="text-4xl md:text-6xl font-magilio text-title-blue mb-4 font-normal">
                             Yoga & Wellness Experience
                         </h2>
                         <img src="https://i.postimg.cc/NGKcdBNt/1.png" alt="Decorative line" className="mx-auto my-4 h-auto w-80 md:w-[500px]" />
-                        <p className="text-xl font-consolas text-black dark:text-gray-300 max-w-3xl mx-auto font-bold">
+                        <p className="text-xl font-consolas text-black max-w-3xl mx-auto font-bold">
                             Our camp extends beyond the waves. Immerse yourself in a holistic lifestyle that nourishes the mind, body, and soul through the practice of yoga and community connection. Find your balance where the desert meets the ocean.
                         </p>
                     </div>
