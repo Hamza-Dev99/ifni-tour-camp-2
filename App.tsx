@@ -63,7 +63,7 @@ const FAQSection: React.FC = () => {
     return (
         <section className="bg-white py-8 md:py-12 overflow-hidden">
             <div className="container-wide">
-                {/* Header - Tightened spacing */}
+                {/* Header - Optimized for Magilio Font and Decorative Line */}
                 <div className="text-center mb-6 md:mb-8">
                     <h2 className="text-3xl md:text-5xl font-magilio text-title-blue mb-1 font-normal" data-aos="fade-up">
                         Most Frequently Asked Questions (FAQ)
@@ -77,10 +77,10 @@ const FAQSection: React.FC = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col lg:flex-row gap-6 lg:gap-12 items-start">
-                    {/* Left side: Image - Optimized size */}
-                    <div className="w-full lg:w-4/12 md:px-0" data-aos="fade-right">
-                        <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[16/10] md:aspect-[3/2] group max-h-[250px] md:max-h-none">
+                <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
+                    {/* Left side: Image - 1/3 Width Focus */}
+                    <div className="w-full lg:w-4/12" data-aos="fade-right">
+                        <div className="relative overflow-hidden rounded-2xl shadow-xl aspect-[16/10] md:aspect-[3/2] group max-h-[220px] md:max-h-none">
                             <img 
                                 src="https://i.postimg.cc/6pG9yKKM/client-ifni-sunset-1.jpg" 
                                 alt="Sidi Ifni Coastal Landscape at Twilight" 
@@ -90,13 +90,13 @@ const FAQSection: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Right side: Accordion - Compact & Information Dense */}
+                    {/* Right side: Accordion - Information Dense with Bold Consolas */}
                     <div className="w-full lg:w-8/12 space-y-0.5" data-aos="fade-left">
                         {faqs.map((faq, idx) => (
                             <div key={idx} className="border-b border-gray-100 last:border-0">
                                 <button
                                     onClick={() => toggleFAQ(idx)}
-                                    className="w-full py-2 md:py-3 flex items-center gap-3 text-left group transition-all duration-300"
+                                    className="w-full py-2 md:py-2.5 flex items-center gap-2.5 text-left group transition-all duration-300"
                                 >
                                     <span className={`text-xl font-light transition-transform duration-300 flex-shrink-0 w-5 ${openIndex === idx ? 'rotate-45 text-ifni-gold' : 'text-title-blue'}`}>
                                         +
@@ -108,9 +108,9 @@ const FAQSection: React.FC = () => {
                                 <div 
                                     className={`overflow-hidden transition-all duration-500 ease-in-out ${openIndex === idx ? 'max-h-[300px] opacity-100 pb-3' : 'max-h-0 opacity-0'}`}
                                 >
-                                    <div className="flex gap-3">
-                                        <div className="w-5 flex-shrink-0"></div> {/* Match icon alignment */}
-                                        <p className="text-gray-600 font-['Consolas',_monospace] italic leading-relaxed text-xs md:text-sm">
+                                    <div className="flex gap-2.5">
+                                        <div className="w-5 flex-shrink-0"></div> {/* Alignment spacer */}
+                                        <p className="text-gray-600 font-['Consolas',_monospace] font-bold italic leading-relaxed text-xs md:text-sm">
                                             {faq.answer}
                                         </p>
                                     </div>
@@ -162,12 +162,18 @@ const ValuePropCard: React.FC<{ prop: typeof valuePropsData[0], index: number }>
             className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
             style={{ backgroundImage: `url('${prop.imageUrl}')` }}
         />
-        <div className="absolute inset-0 bg-black/60 transition-opacity duration-500 group-hover:opacity-70" />
+        {/* Stylized darkened overlay */}
+        <div className="absolute inset-0 bg-black/60 transition-opacity duration-500 group-hover:opacity-75" />
+        
+        {/* Subtle geometric pattern overlay for Moroccan texture */}
+        <div className="absolute inset-0 opacity-[0.15] mix-blend-overlay pointer-events-none group-hover:opacity-[0.25] transition-opacity duration-500"
+             style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/az-subtle.png')" }}></div>
+        
         <div className="relative z-10 flex flex-col items-center justify-center h-full">
             <h3 className="text-3xl md:text-5xl font-magilio text-white mb-6 leading-tight drop-shadow-2xl font-normal">
                 {prop.headline}
             </h3>
-            <p className="text-white text-base md:text-lg leading-relaxed opacity-90 max-sm font-['Consolas',_monospace] font-bold italic">
+            <p className="text-white text-base md:text-lg leading-relaxed opacity-90 max-w-xs font-['Consolas',_monospace] font-bold italic">
                 {prop.body}
             </p>
         </div>
@@ -387,7 +393,7 @@ const HeroSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage })
     }, [heroSlides.length]);
 
     return (
-        <section className="relative h-[65vh] md:h-[85vh] w-full text-white overflow-hidden flex items-center justify-center">
+        <section className="relative h-[75vh] md:h-[92vh] w-full text-white overflow-hidden flex items-center justify-center">
             {heroSlides.map((slide, index) => (
                 <div
                     key={index}
@@ -403,25 +409,25 @@ const HeroSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage })
             ))}
             
             <div className="relative z-10 container-wide w-full h-full flex items-center">
-                <div className="max-w-4xl text-left px-4 md:px-0">
+                <div className="max-w-4xl text-left px-4 md:px-0 mt-8 md:mt-0">
                     <div key={currentSlide} className="overflow-hidden">
-                        <div className="flex items-center gap-3 mb-2 animate-fade-in-down" style={{ animationDelay: '0.2s' }}>
-                            <div className="w-8 md:w-12 h-[2px] bg-ifni-gold"></div>
-                            <span className="text-ifni-gold uppercase tracking-[0.3em] font-bold text-[8px] md:text-xs">Welcome to Sidi Ifni</span>
+                        <div className="flex items-center gap-3 mb-3 animate-fade-in-down" style={{ animationDelay: '0.2s' }}>
+                            <div className="w-10 md:w-12 h-[2px] bg-ifni-gold"></div>
+                            <span className="text-ifni-gold uppercase tracking-[0.3em] font-bold text-[9px] md:text-xs">Welcome to Sidi Ifni</span>
                         </div>
                         
-                        <h1 className="text-3xl sm:text-4xl md:text-7xl lg:text-8xl font-magilio text-white leading-[1.05] md:leading-[1] mb-3 md:mb-5 drop-shadow-2xl font-normal">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-magilio text-white leading-[1.05] md:leading-[1] mb-5 md:mb-6 drop-shadow-2xl font-normal">
                             {heroSlides[currentSlide].title}
                         </h1>
                         
-                        <p className="text-xs sm:text-base md:text-xl font-sans text-white/80 max-w-[280px] sm:max-w-lg md:max-w-2xl animate-fade-in-up drop-shadow-lg leading-relaxed mb-6 md:mb-8" style={{ animationDelay: '1.2s' }}>
+                        <p className="text-sm sm:text-base md:text-xl font-sans text-white/80 max-w-[300px] sm:max-w-lg md:max-w-2xl animate-fade-in-up drop-shadow-lg leading-relaxed mb-8 md:mb-10" style={{ animationDelay: '1.2s' }}>
                             {heroSlides[currentSlide].subtitle}
                         </p>
                         
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-6 items-start animate-fade-in-up" style={{ animationDelay: '1.6s' }}>
+                        <div className="flex flex-col sm:flex-row gap-4 md:gap-6 items-start animate-fade-in-up" style={{ animationDelay: '1.6s' }}>
                             <button
                                 onClick={() => setPage('Packages')}
-                                className="group relative overflow-hidden bg-ifni-gold text-white py-2.5 px-6 md:py-4 md:px-12 rounded-full text-[10px] md:text-base transition-all duration-500 transform hover:scale-105 shadow-2xl font-magilio font-normal"
+                                className="group relative overflow-hidden bg-ifni-gold text-white py-3 px-8 md:py-4 md:px-12 rounded-full text-xs md:text-base transition-all duration-500 transform hover:scale-105 shadow-2xl font-magilio font-normal"
                             >
                                 <span className="relative z-10">Start Your Adventure</span>
                                 <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500"></div>
@@ -429,11 +435,11 @@ const HeroSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage })
                             
                             <button
                                 onClick={() => document.getElementById('intro')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="group flex items-center gap-2 md:gap-4 py-2 text-white text-[10px] md:text-base hover:text-ifni-gold transition-colors duration-300 font-magilio font-normal"
+                                className="group flex items-center gap-3 md:gap-4 py-2 text-white text-xs md:text-base hover:text-ifni-gold transition-colors duration-300 font-magilio font-normal"
                             >
                                 <span>See More</span>
-                                <div className="w-6 h-6 md:w-10 md:h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-ifni-gold group-hover:bg-ifni-gold transition-all duration-300">
-                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 md:h-5 md:w-5 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div className="w-8 h-8 md:w-10 md:h-10 rounded-full border border-white/30 flex items-center justify-center group-hover:border-ifni-gold group-hover:bg-ifni-gold transition-all duration-300">
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 md:h-5 md:w-5 transform -rotate-45" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </div>
@@ -455,17 +461,17 @@ const HeroSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage })
             </div>
             
             {/* Scroll Indicator - Compact */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 animate-bounce">
-                <span className="text-[7px] uppercase tracking-[0.4em] font-bold">Scroll</span>
-                <div className="w-[1px] h-6 bg-gradient-to-b from-white to-transparent"></div>
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 animate-bounce">
+                <span className="text-[8px] uppercase tracking-[0.4em] font-bold">Scroll</span>
+                <div className="w-[1px] h-8 bg-gradient-to-b from-white to-transparent"></div>
             </div>
         </section>
     );
 };
 
 const IntroSection: React.FC = () => (
-  <Section id="intro" className="bg-white text-center" padding="pt-8 md:pt-12 pb-2">
-      <img src="https://i.postimg.cc/ZngFwFYH/65.png" alt="Logo" className="mx-auto mb-2 h-12 md:h-18 opacity-100 transition-transform hover:scale-110" />
+  <Section id="intro" className="bg-white text-center" padding="pt-10 md:pt-14 pb-2">
+      <img src="https://i.postimg.cc/ZngFwFYH/65.png" alt="Logo" className="mx-auto mb-3 h-14 md:h-18 opacity-100 transition-transform hover:scale-110" />
       
       <h2 className="text-2xl md:text-5xl font-magilio text-title-blue mb-1 font-normal">
         Welcome to Ifni Tour Surf Camp
@@ -474,52 +480,52 @@ const IntroSection: React.FC = () => (
       <img 
         src="https://i.postimg.cc/9fJtSFt1/Screenshot-2025-12-23-200156.png"
         alt="Decorative line" 
-        className="mx-auto mb-4 h-auto w-40 md:w-[420px]" 
+        className="mx-auto mb-5 h-auto w-44 md:w-[420px]" 
       />
       
-      <p className="text-xs md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-center px-4 font-['Consolas',_monospace] font-bold" data-aos="fade-up">
+      <p className="text-sm md:text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-center px-4 font-['Consolas',_monospace] font-bold" data-aos="fade-up">
         At Ifni Tour Camp, we believe surfing is more than just a sport it’s a lifestyle. Our camp offers an authentic Moroccan surf experience where sunset, sea, and soul connect.
       </p>
   </Section>
 );
 
 const WelcomeDetailSection: React.FC<{ setPage: (page: string) => void }> = ({ setPage }) => (
-    <Section className="bg-white" padding="py-4 md:py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
+    <Section className="bg-white" padding="py-6 md:py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-14 items-center">
             <div className="order-2 lg:order-1 flex flex-col items-start text-left" data-aos="fade-right">
                 <h2 className="text-2xl md:text-4xl font-heading font-bold mb-1 bg-gradient-to-r from-[#074f7c] to-[#0d8ad7] bg-clip-text text-transparent">
                     Authentic Morocco
                 </h2>
-                <div className="w-10 h-1 bg-ifni-gold mb-3 rounded-full"></div>
-                <p className="text-sm md:text-lg text-[#666666] mb-4 leading-relaxed max-w-xl font-['Consolas',_monospace] font-bold">
+                <div className="w-12 h-1 bg-ifni-gold mb-3 rounded-full"></div>
+                <p className="text-sm md:text-lg text-[#666666] mb-5 leading-relaxed max-w-xl font-['Consolas',_monospace] font-bold">
                     Welcome to Ifni Tour Surf Camp Sidi Ifni, one of the original surf camps in Morocco since 2007. 
                     Located in the heart of Sidi Ifni, our Surf Camp blends comfortable accommodation, 
                     professional surf lessons for all levels, and a vibrant coworking space. 
                 </p>
-                <div className="space-y-2 mb-6 w-full">
+                <div className="space-y-3 mb-8 w-full">
                     {[
                         { icon: 'https://i.postimg.cc/PxDg6ySn/icon-location.png', text: 'Located in the heart of Sidi Ifni' },
                         { icon: 'https://i.postimg.cc/1XVx4B8X/guests.png', text: 'Guests from 40+ countries' },
                         { icon: 'https://i.postimg.cc/C5nyd7Rd/surfboard.png', text: 'Daily surf, yoga, and community events' }
                     ].map((item, i) => (
                         <div key={i} className="flex items-center group">
-                            <div className="w-6 h-6 md:w-8 md:h-8 rounded-lg bg-light-gray-blue flex items-center justify-center mr-3 flex-shrink-0 transition-transform group-hover:scale-110 shadow-sm">
-                                <img src={item.icon} alt="Icon" className="w-3 h-3 md:w-4 md:h-4" />
+                            <div className="w-8 h-8 rounded-lg bg-light-gray-blue flex items-center justify-center mr-3 flex-shrink-0 transition-transform group-hover:scale-110 shadow-sm">
+                                <img src={item.icon} alt="Icon" className="w-4 h-4" />
                             </div>
-                            <span className="text-[#074f7c] font-bold text-xs md:text-lg font-sans">{item.text}</span>
+                            <span className="text-[#074f7c] font-bold text-sm md:text-lg font-sans">{item.text}</span>
                         </div>
                     ))}
                 </div>
                 <button 
                     onClick={() => setPage('About')}
-                    className="group relative overflow-hidden px-6 py-2.5 md:px-8 md:py-3.5 rounded-xl bg-gradient-to-r from-[#0c8ad7] to-[#085889] text-white text-sm md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 font-magilio font-normal"
+                    className="group relative overflow-hidden px-8 py-3.5 rounded-xl bg-gradient-to-r from-[#0c8ad7] to-[#085889] text-white text-sm md:text-lg shadow-lg hover:shadow-xl transition-all duration-300 font-magilio font-normal"
                 >
                     <span className="relative z-10">Meet the Family</span>
                     <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-500"></div>
                 </button>
             </div>
             <div className="order-1 lg:order-2 w-full" data-aos="fade-left">
-                <div className="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl h-[250px] md:h-[420px] group">
+                <div className="relative overflow-hidden rounded-[1.5rem] md:rounded-[2rem] shadow-xl h-[300px] md:h-[420px] group">
                     <img 
                         src="https://images.unsplash.com/photo-1528605105345-5344ea20e269?q=80&w=1200&auto=format&fit=crop" 
                         alt="Life at Ifni Tour Camp" 
@@ -533,15 +539,15 @@ const WelcomeDetailSection: React.FC<{ setPage: (page: string) => void }> = ({ s
 );
 
 const AtmosphericHeroSection: React.FC = () => (
-    <section className="relative w-full py-10 md:py-20 bg-cover bg-center overflow-hidden flex flex-col items-center justify-center text-center"
+    <section className="relative w-full py-12 md:py-24 bg-cover bg-center overflow-hidden flex flex-col items-center justify-center text-center"
              style={{ backgroundImage: "url('https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?q=80&w=1920&auto=format&fit=crop')" }}>
         <div className="absolute inset-0 bg-black/60 z-0"></div>
         <div className="relative z-10 w-full max-w-5xl mx-auto px-6" data-aos="fade-up">
-            <h2 className="text-2xl sm:text-3xl md:text-6xl font-magilio text-white mb-1 leading-tight tracking-tight drop-shadow-2xl font-normal">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-magilio text-white mb-1 leading-tight tracking-tight drop-shadow-2xl font-normal">
                 Waves, Music, Sunsets.
             </h2>
-            <div className="w-12 h-1 bg-ifni-gold mx-auto mb-3 rounded-full"></div>
-            <p className="text-white text-xs md:text-xl max-w-4xl mx-auto leading-relaxed opacity-90 italic font-['Consolas',_monospace] font-bold">
+            <div className="w-16 h-1 bg-ifni-gold mx-auto mb-4 rounded-full"></div>
+            <p className="text-white text-sm md:text-xl max-w-4xl mx-auto leading-relaxed opacity-90 italic font-['Consolas',_monospace] font-bold">
                 "Join our community of surfers, travelers, and free spirits for the adventure of a lifetime in Southern Morocco."
             </p>
         </div>
@@ -550,26 +556,31 @@ const AtmosphericHeroSection: React.FC = () => (
 
 const ValuePropsSection: React.FC = () => {
     return (
-        <Section className="bg-white" padding="py-10 md:py-16">
-            <div className="text-center mb-8 md:mb-12">
+        <Section className="bg-white relative overflow-hidden" padding="py-12 md:py-20">
+            {/* Subtle Moroccan geometric background pattern */}
+            <div className="absolute inset-0 opacity-[0.03] pointer-events-none" 
+                 style={{ backgroundImage: "url('https://www.transparenttextures.com/patterns/az-subtle.png')" }}></div>
+            
+            <div className="relative z-10 text-center mb-10 md:mb-14">
                 <h2 className="text-3xl md:text-5xl font-magilio text-title-blue mb-1 font-normal">
                     Why Choose Us?
                 </h2>
                 
-                <div className="flex justify-center mb-4" data-aos="zoom-in" data-aos-delay="200">
+                {/* Decorative Moroccan divider matching site visual style */}
+                <div className="flex justify-center mb-5" data-aos="zoom-in" data-aos-delay="200">
                     <img 
                       src="https://i.postimg.cc/9fJtSFt1/Screenshot-2025-12-23-200156.png" 
                       alt="Decorative line" 
-                      className="h-auto w-40 md:w-[500px] object-contain"
+                      className="h-auto w-44 md:w-[500px] object-contain"
                     />
                 </div>
 
-                <p className="text-xs md:text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed text-balance font-['Consolas',_monospace] font-bold">
+                <p className="text-sm md:text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed text-balance font-['Consolas',_monospace] font-bold">
                     Discover why ifni Tour is the premier choice for wave riders worldwide. We've optimized every detail for your ultimate comfort and progression.
                 </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-6 md:gap-8 max-w-[1400px] mx-auto px-4">
+            <div className="grid grid-cols-1 md:grid-cols-6 gap-6 md:gap-8 max-w-[1400px] mx-auto px-4 relative z-10">
                 <div className="md:col-span-2">
                     <ValuePropCard prop={valuePropsData[0]} index={0} />
                 </div>
